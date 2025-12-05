@@ -90,10 +90,10 @@ const Viral = ({ id }) => {
   return (
     <div
       ref={sectionRef}
-      className="bg-Dark relative flex h-screen w-full items-center justify-center overflow-hidden"
+      className="bg-Purple relative flex h-screen w-full items-center justify-center overflow-hidden"
       id={id}
     >
-      <div className="text-Purple relative top-0 left-0 z-10 w-[100vw] max-w-7xl px-4 text-center text-[5rem] leading-[0.75] font-bold sm:px-6 md:px-8 md:text-[9.5rem] lg:px-4 lg:text-[11.5rem]">
+      <div className="text-Dark relative top-0 left-0 z-10 w-[100vw] max-w-7xl px-4 text-center text-[5rem] leading-[0.75] font-bold sm:px-6 md:px-8 md:text-[9.5rem] lg:px-4 lg:text-[11.5rem]">
         <p className="whitespace-nowrap md:whitespace-normal line-clamp-1">THE CURRENT</p>
         <p className="whitespace-nowrap md:whitespace-normal line-clamp-1">VIRALS AND</p>
         <p className="whitespace-nowrap md:whitespace-normal line-clamp-1">ARTISTS POPPIN</p>
@@ -129,7 +129,7 @@ const Viral = ({ id }) => {
 
       {/* More button in bottom-right corner */}
       <div className="absolute bottom-0 right-0 z-[1000] m-4">
-        <div className="text-Dark bg-Purple text-[2rem] font-black tracking-[-0.01em] sm:text-[1.5rem] md:text-[2rem] lg:text-[3rem] px-4 leading-[1]">More...</div>
+        <div className="text-Purple bg-Dark text-[2rem] font-black tracking-[-0.01em] sm:text-[1.5rem] md:text-[2rem] lg:text-[3rem] px-4 leading-[1.2]">More...</div>
       </div>
     </div>
   );
