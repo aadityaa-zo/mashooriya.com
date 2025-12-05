@@ -22,11 +22,11 @@ const App = () => {
   useEffect(() => {
     const lenis = new Lenis({
       autoRaf: false,
-      lerp: 0.1, // Keep this balanced (0.1 is good)
-      duration: 3, // How long momentum lasts (1.2-2.0 seconds)
+      lerp: 0.1,                      // Keep this balanced (0.1 is good)
+      duration: 3,                    // How long momentum lasts (1.2-2.0 seconds)
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Smooth ease-out
-      smoothWheel: true, // Enable smooth wheel scrolling
-      wheelMultiplier: 5, //scroll sensitivity
+      smoothWheel: true,               // Enable smooth wheel scrolling
+      wheelMultiplier: 5,              //scroll sensitivity
     });
 
     function raf(time) {
