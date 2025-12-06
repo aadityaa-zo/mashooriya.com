@@ -141,7 +141,7 @@ const DraggableCard = ({
         style={{ backgroundColor: bgColor }}
       >
         <div className="top-0 right-0 left-0 h-full">
-          <img src={image} alt="" className="w-[20vw]" />
+          <img src={image} alt="" className="w-[20vw]" loading="lazy"/>
         </div>
 
         <div className="absolute top-0 right-0 left-0 flex h-full w-full items-end justify-start bg-transparent px-4 py-8">
