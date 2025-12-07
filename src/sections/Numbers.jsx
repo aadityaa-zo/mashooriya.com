@@ -21,11 +21,11 @@ const Numbers = ({ id }) => {
       {
         y: 0,
         scale: 1,
-        ease: "ease.out",
+        ease: "power3.out",
         scrollTrigger: {
           trigger: el,
-          start: "top 160%",
-          end: "top 110%",
+          start: "top 150%",
+          end: "top 40%",
           scrub: 1,
         },
       },
@@ -35,8 +35,8 @@ const Numbers = ({ id }) => {
     ScrollTrigger.create({
       trigger: `#${id}`,
       start: "top top",
-      endTrigger: "#bar-section",
-      end: "bottom bottom",
+      // endTrigger: "#bar-section",
+      end: "bottom top",
       pin: true,
       pinSpacing: false,
       scrub: true,
@@ -54,7 +54,7 @@ const Numbers = ({ id }) => {
           scrollTrigger: {
             trigger: el,
             start: "top 150%",
-            end: "top 60%",
+            end: "top 10%",
             scrub: true,  
           },
         },

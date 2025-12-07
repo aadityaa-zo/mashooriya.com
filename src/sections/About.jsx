@@ -75,13 +75,13 @@ const About = ({ id }) => {
         { x: "-50vh", scale: 0, rotation: -20 },
         {
           x: "0vh",
-          rotation: -10,
+          rotation: -4,
           scale: 1,
           ease: "ease.in",
           scrollTrigger: {
             trigger: card2Ref.current,
             start: "top 150%",
-            end: "top 60%",
+            end: "top 10%",
             scrub: true,
           },
         },
@@ -95,13 +95,13 @@ const About = ({ id }) => {
         { x: "50vh", scale: 0, rotation: 20 },
         {
           x: "0vh",
-          rotation: 10,
+          rotation: 4,
           scale: 1,
           ease: "ease.in",
           scrollTrigger: {
             trigger: card2Ref.current,
             start: "top 150%",
-            end: "top 60%",
+            end: "top 10%",
             scrub: true,
           },
         },

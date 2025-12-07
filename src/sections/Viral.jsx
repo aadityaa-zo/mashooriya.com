@@ -23,21 +23,21 @@ const Viral = ({ id }) => {
       artistName: "swagar boy",
       image: "/SongImage/kahi-teri-bol.png",
       bgColor: "var(--Green)",
-      rotation: 8,
+      rotation: -4,
     },
     {
       songName: "kahi teri bol",
       artistName: "swagar boy",
       image: "/SongImage/kahi-teri-bol.png",
       bgColor: "var(--Yellow)",
-      rotation: 12,
+      rotation: 6,
     },
     {
       songName: "kahi teri bol",
       artistName: "swagar boy",
       image: "/SongImage/kahi-teri-bol.png",
       bgColor: "var(--Green)",
-      rotation: 16,
+      rotation: -6,
     },
   ];
 
@@ -63,7 +63,7 @@ const Viral = ({ id }) => {
 
     gsap.fromTo(
       titleRef.current,
-      { y: "50vh", scale: 0 },
+      { y: "50vh"},
       {
         y: "0 vh",
         scale: 1,

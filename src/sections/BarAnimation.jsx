@@ -53,7 +53,7 @@ const BarAnimation = ({ id }) => {
         <div
           key={i}
           ref={(el) => (barsRef.current[i] = el)}
-          className="absolute bottom-0 bg-Purple rounded-t-md border-Green border-b-0"
+          className="absolute bottom-0 bg-Purple border-Green border-b-0"
           style={{
             left: `${i * barWidth}%`,
             width: `${barWidth}%`,
