@@ -123,7 +123,7 @@ const Viral = ({ id }) => {
       <div className="absolute top-0 right-0 z-[100] flex w-full flex-col items-center justify-center">
         <div
           ref={titleRef}
-          className="text-Dark relative top-0 left-0 z-10 flex h-screen w-[100vw] max-w-7xl flex-col justify-start sm:justify-center px-4 py-[28vh] text-center leading-[0.75] font-bold sm:px-6 md:px-8 text-[4rem] sm:text-[9rem] md:text-[9.5rem] lg:px-4 lg:text-[11.5rem]"
+          className="text-Dark relative top-0 left-0 z-10 flex h-screen w-[100vw] max-w-7xl flex-col justify-start sm:justify-center px-4 py-[28vh] text-center leading-[0.75] font-bold sm:px-6 md:px-8 text-[4rem] sm:text-[9rem] md:text-[9.5rem] lg:px-4 lg:text-[12rem]"
         >
           <p className="whitespace-nowrap md:whitespace-normal">THE CURRENT</p>
           <p className="whitespace-nowrap md:whitespace-normal">VIRALS AND</p>

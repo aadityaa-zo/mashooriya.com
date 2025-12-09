@@ -75,14 +75,14 @@ const Numbers = ({ id }) => {
           {/* Title */}
           <h1
             ref={titleRef}
-            className="text-Dark text-[5rem] leading-[0.8] font-extrabold tracking-tight uppercase sm:text-[9rem] md:text-[9rem] lg:text-[11rem]"
+            className="text-Dark text-[5rem] leading-[0.8] font-extrabold tracking-tight uppercase sm:text-[9rem] md:text-[9rem] lg:text-[12rem]"
           >
             Numbers that <br />  Make Major    <br /> Noiseeee!
           </h1>
 
           {/* Tile 1 – Top Right */}
           <NumberTitles
-            classes="bg-Purple text-Dark sm:top-[28%] sm:left-[2%] top-[15%] left-[2%] md:left-[20%] lg:top-[20%] lg:left-[15%] "
+            classes="bg-Purple text-Dark sm:top-[28%] sm:left-[2%] top-[15%] left-[2%] md:left-[20%] lg:top-[17%] lg:left-[8%] "
             number="6X"
             text={
               <>
@@ -95,7 +95,7 @@ const Numbers = ({ id }) => {
 
           {/* Tile 2 – top Left */}
           <NumberTitles
-            classes="bg-White text-Dark sm:top-[28%] sm:right-[4%] top-[23%] right-[1%] lg:top-[20%] lg:right-[9%] "
+            classes="bg-White text-Dark sm:top-[28%] sm:right-[4%] top-[23%] right-[1%] lg:top-[17%] lg:right-[9%] "
             number="28M+"
             text={
               <>
@@ -108,7 +108,7 @@ const Numbers = ({ id }) => {
 
           {/* Tile 3 – Bottom Left */}
           <NumberTitles
-            classes="bg-Green text-White top-[65%] left-[10%] md:top-[25%] md:right-[15%] lg:top-[60%] lg:left-[25%]"
+            classes="bg-Green text-White top-[65%] left-[10%] md:top-[25%] md:right-[15%] lg:top-[63%] lg:left-[25%]"
             number="50+"
             text={
               <>

@@ -17,13 +17,15 @@ function AboutDevsCard({ dev, index }) {
       gsap.fromTo(
         cardRef.current,
         {
-          x: fromLeft ? "-50vh" : "50vh",
+          // x: fromLeft ? "-50vh" : "50vh",
+          y: fromLeft ? "30vh" : "30vh",
           scale: 0,
           rotation: fromLeft ? -12 : 12,
         },
+        
         {
-          x: fromLeft ? " " : "-5vh",
-          y: fromLeft ? "-3vh" : "-1vh",
+          // x: fromLeft ? " " : "-5vh",
+          y: fromLeft ? "0vh" : "0vh",
           rotation: 0,
           scale: 1,
           ease: "ease",

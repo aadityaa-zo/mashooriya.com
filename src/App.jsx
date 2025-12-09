@@ -9,7 +9,7 @@ import Numbers from "./sections/Numbers";
 import Viral from "./sections/Viral";
 import About from "./sections/About";
 import Services from "./sections/Services";
-// import TeamSection from "./sections/TeamSection";
+import TeamSection from "./sections/TeamSection";
 import Originals from "./sections/Originals";
 import Clients from "./sections/Clients";
 import BarAnimation from "./sections/BarAnimation";
@@ -104,7 +104,7 @@ const App = () => {
       <BarAnimation id="bar-section" />
       <Viral id="viral-section" />
       <About id="about-section" />
-      {/* <TeamSection id="team-section" /> */}
+      <TeamSection id="team-section" />
       <Services id="services-section" />
       <Clients id="client-section" />
       <Originals id="originals-section" />
