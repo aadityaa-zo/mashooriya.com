@@ -71,7 +71,7 @@ function TeamSection({ id }) {
             <div id={id} className="bg-Yellow flex z-10 min-h-screen md:h-screen items-center px-4 sm:px-6 md:px-10 pb-12 md:pb-20">
                 <div id={id} className=" bg-Yellow z-1 md:pt-[10vh] mx-auto w-full">
                     {/* Team Cards Container */}
-                    <div className="md:h-auto h-[70vh] border md:scale-100 scale-75 flex flex-col items-center justify-center gap-10 lg:flex-row lg:items-start lg:justify-center sm:-translate-x-2 lg:-translate-x-3">
+                    <div className="md:h-auto h-[70vh] md:scale-100 scale-75 flex flex-col items-center justify-center gap-10 lg:flex-row lg:items-start lg:justify-center sm:-translate-x-2 lg:-translate-x-3">
 
                         {devs.map((dev, index) => (
                             <AboutDevsCard key={dev.name} dev={dev} index={index} />
