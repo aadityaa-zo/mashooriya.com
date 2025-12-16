@@ -17,23 +17,23 @@ function AboutDevsCard({ dev, index }) {
       gsap.fromTo(
         cardRef.current,
         {
-          // x: fromLeft ? "-50vh" : "50vh",
-          y: fromLeft ? "30vh" : "30vh",
-          scale: 0,
+          x: fromLeft ? "-50vh" : "50vh",
+          // y: fromLeft ? "30vh" : "30vh",
+          // scale: 0,
           rotation: fromLeft ? -12 : 12,
         },
-        
+
         {
-          // x: fromLeft ? " " : "-5vh",
-          y: fromLeft ? "0vh" : "0vh",
+          x: fromLeft ? " " : "-5vh",
+          // y: fromLeft ? "0vh" : "0vh",
           rotation: 0,
-          scale: 1,
-          ease: "ease",
+          // scale: 1,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: cardRef.current,
             start: "top 150%",
-            end: "top 80%",
-            scrub:1,
+            end: "top 70%",
+            scrub: 0.1,
           },
         },
       );
@@ -48,7 +48,9 @@ function AboutDevsCard({ dev, index }) {
       <div
         className={`${dev.bg} ${dev.border} ${dev.cardRotation} ${dev.cardClasses} w-full overflow-hidden border-4 p-2 sm:p-4`}
       >
-        <div className="relative border-4 border-black overflow-hidden h-50 w-80 md:h-100 md:w-140 md:px-1">
+        <div className="  relative border-4 border-black overflow-hidden
+        h-[220px] sm:h-[260px] md:h-[320px] lg:h-[380px]
+        w-full">
           <img src={dev.image} alt={dev.name} className={`h-full w-full`} />
         </div>
         <div className={`${dev.bg} px-2 py-1`}>

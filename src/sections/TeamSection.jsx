@@ -43,7 +43,7 @@ function TeamSection({ id }) {
             pinSpacing: false,
             scrub: true,
         });
-        
+
         // Animate the paragraph
         if (paragraphRef.current) {
             gsap.fromTo(
@@ -68,10 +68,10 @@ function TeamSection({ id }) {
         <>
             {/* interval/break for upper section */}
             {/* <div className="w-full h-[80vh]"></div> */}
-            <div id={id} className="bg-Yellow flex z-10 md:h-screen items-center px-4 pb-12 md:pb-20">
+            <div id={id} className="bg-Yellow flex z-10 min-h-screen md:h-screen items-center px-4 sm:px-6 md:px-10 pb-12 md:pb-20">
                 <div id={id} className=" bg-Yellow z-1 md:pt-[10vh] mx-auto w-full">
                     {/* Team Cards Container */}
-                    <div className="flex bg- -translate-x-3 flex-col items-center justify-center gap-8 lg:flex-row lg:items-start lg:justify-center">
+                    <div className=" flex flex-col items-center justify-center gap-10 lg:flex-row lg:items-start lg:justify-center sm:-translate-x-2 lg:-translate-x-3">
 
                         {devs.map((dev, index) => (
                             <AboutDevsCard key={dev.name} dev={dev} index={index} />
@@ -79,10 +79,10 @@ function TeamSection({ id }) {
                     </div>
 
                     {/* Company Description */}
-                    <div className="mt-12 w-full text-center md:mt-16 lg:mt-20">
+                    <div className="mt-10 sm:mt-12 md:mt-16 lg:mt-20 w-full text-center">
                         <p
                             ref={paragraphRef}
-                            className="text-Dark mx-auto w-full max-w-7xl px-4 text-2xl leading-[0.8] font-bold md:text-3xl lg:text-4xl"
+                            className=" text-Dark mx-auto w-full max-w-7xl px-4 text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold leading-tight sm:leading-[1] md:leading-[0.9] lg:leading-[0.8]"
                         >
                             MASHOORIYA FUSES MUSIC, CULTURE, AND STRATEGY TO AMPLIFY
                             INDEPENDENT VOICES. WE CRAFT CAMPAIGNS THAT FEEL LIKE CULTURE

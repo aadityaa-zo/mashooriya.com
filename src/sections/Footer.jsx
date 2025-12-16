@@ -1,51 +1,59 @@
-import React from 'react'
+import React from "react";
 
 const Footer = ({ id }) => {
   return (
-    <div id={id} className='w-full bg-Dark flex justify-end py-20 md:py-0 flex-col'>
+    <div
+      id={id}
+      className="w-full bg-Dark flex flex-col justify-end pt-12 md:pt-20"
+    >
+      {/* Top Section */}
+      <div className="flex w-full items-center justify-center uppercase">
+        <div className="text-Yellow font-bold flex flex-col md:flex-row gap-16 min-w-[90%] justify-between">
+          
+          {/* Left */}
+          <div className="text-center md:text-left">
+            <h2 className="text-xl md:text-2xl leading-none">contact</h2>
+            <p className="text-3xl md:text-5xl leading-none underline break-all">
+              WE@MASHOORIYA.COM
+            </p>
 
-
-      <div className="flex w-full items-center justify-center uppercase pb-30">
-        <div className="text-Yellow font-bold flex items-start min-w-[90%] justify-between">
-          <div>
-            <div>
-              <h2 className="text-[2rem] line-clamp-1 leading-none">contact</h2>
-              <p className="text-[5rem] line-clamp-1 leading-none underline">WE@MASHOORIYA.COM</p>
-            </div>
-            <div>
-              <h2 className="text-[2rem] line-clamp-1 leading-none pt-10">QUICK LINKS</h2>
-              <p className="text-[3rem] line-clamp-1 leading-none underline">masooriya originals</p>
-              <p className="text-[3rem] line-clamp-1 leading-none underline">service</p>
-              <p className="text-[3rem] line-clamp-1 leading-none underline">hit list</p>
+            <div className="pt-8">
+              <h2 className="text-xl md:text-2xl leading-none">
+                QUICK LINKS
+              </h2>
+              <p className="text-2xl md:text-3xl underline">
+                masooriya originals
+              </p>
+              <p className="text-2xl md:text-3xl underline">service</p>
+              <p className="text-2xl md:text-3xl underline">hit list</p>
             </div>
           </div>
 
-          <div>
-            <h2 className="text-[2rem] line-clamp-1 leading-none text-right">contact</h2>
-            <p className="text-[5rem] line-clamp-1 leading-none underline">WE@MASHOORIYA.COM</p>
-
+          {/* Right */}
+          <div className="text-center md:text-right">
+            <h2 className="text-xl md:text-2xl leading-none">contact</h2>
+            <p className="text-3xl md:text-5xl leading-none underline break-all">
+              WE@MASHOORIYA.COM
+            </p>
           </div>
         </div>
       </div>
 
-      <div className="text-Yellow  border-white w-full flex items-center pb-8 justify-center">
-        <img src="./team zeroone made this!.png" className="" alt="" />
+      {/* Credit */}
+      <div className="text-Yellow w-full flex items-center justify-center py-8">
+        <img
+          src="./team zeroone made this!.png"
+          className="max-w-[200px] md:max-w-none"
+          alt=""
+        />
       </div>
 
-      <div className=''>
-        <img src="./mash0oriya.png" className="w-full" alt="" />
+      {/* Bottom Image */}
+      <div>
+        <img src="./mash0oriya.png" className="w-full object-contain" alt="" />
       </div>
-      {/* <div className='flex w-full bottom-5 px-[2.2rem]  md:pb-8 font-bold text-2xl md:text-5xl flex-col gap-4 md:flex-row'>
-        <div className='w-full md:w-[40%] flex justify-between gap-4 md:gap-0' >
-          <a href="./">INSTAGRAM</a>
-          <a href="./">TWITTER</a>
-        </div>
-        <div className='w-full md:w-[60%] flex md:justify-end'>
-          <a href="">LINKEDIN</a>
-        </div>
-      </div> */}
     </div>
-  )
-}
+  );
+};
 
 export default Footer;

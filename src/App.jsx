@@ -41,11 +41,11 @@ const App = () => {
   useEffect(() => {
     const lenis = new Lenis({
       autoRaf: false,
-      lerp: 0.5,                     
-      duration: 3,                   
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-      smoothWheel: true,              
-      wheelMultiplier: 3,              
+      lerp: 0.01,
+      duration: 3,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 3,
     });
 
     function raf(time) {
@@ -110,7 +110,7 @@ const App = () => {
       <Services id="services-section" />
       <Clients id="client-section" />
       <Originals id="originals-section" />
-      <Form id="form-section"/>
+      <Form id="form-section" />
       <Footer id="footer-section" />
     </>
   );

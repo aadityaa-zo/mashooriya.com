@@ -151,18 +151,18 @@ const HeroLogo = ({color}) => {
         animate();
 
         // Hover handlers
-        const handleSvgEnter = () => {
-            if (logoLockedRef.current) return;
-            pausedRef.current = true;
-            texts.forEach((t) => t.classList.add("visible"));
-        };
+        // const handleSvgEnter = () => {
+        //     if (logoLockedRef.current) return;
+        //     pausedRef.current = true;
+        //     texts.forEach((t) => t.classList.add("visible"));
+        // };
 
-        const handleSvgLeave = () => {
-            if (logoLockedRef.current) return;
-            pausedRef.current = false;
-            hoveredRectIdRef.current = null;
-            texts.forEach((t) => t.classList.remove("visible"));
-        };
+        // const handleSvgLeave = () => {
+        //     if (logoLockedRef.current) return;
+        //     pausedRef.current = false;
+        //     hoveredRectIdRef.current = null;
+        //     texts.forEach((t) => t.classList.remove("visible"));
+        // };
 
         // svg.addEventListener("mouseenter", handleSvgEnter);
         // svg.addEventListener("mouseleave", handleSvgLeave);
@@ -221,8 +221,8 @@ const HeroLogo = ({color}) => {
 
         return () => {
             cancelAnimationFrame(animationIdRef.current);
-            svg.removeEventListener("mouseenter", handleSvgEnter);
-            svg.removeEventListener("mouseleave", handleSvgLeave);
+            // svg.removeEventListener("mouseenter", handleSvgEnter);
+            // svg.removeEventListener("mouseleave", handleSvgLeave);
             document.removeEventListener("animationend", handleAnimationEnd);
             mm.revert();
         };
@@ -299,7 +299,7 @@ const HeroLogo = ({color}) => {
                         points="0 545.29 250.77 545.28 223.51 293.53 356.61 432.99 491.06 287.84 467.34 545.28 662.15 545.29 662.15 402.69 575.6 402.7 748.58 279.83 666.01 163.56 491.09 287.78 535.32 168.66 401.64 119.01 356.26 241.23 284.26 0 147.61 40.78 222.81 292.7 107.9 201.12 19.01 312.63 131.99 402.7 0 402.68 0 545.29" />
                 </g>
 
-                <g id="labels" aria-hidden="false">
+                {/* <g id="labels" aria-hidden="true">
 
                     <text className="main-text" x="505" y="500"  fontSize="68">NEWS</text>
 
@@ -316,7 +316,7 @@ const HeroLogo = ({color}) => {
                         fontSize="75">STATS</text>
 
                     <text className="main-text" x="21" y="500"  fontSize="75">ABOUT</text>
-                </g>
+                </g> */}
 
             </svg>
         </div>
