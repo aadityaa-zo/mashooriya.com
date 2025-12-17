@@ -1,5 +1,5 @@
-import React from 'react'
-import Marquee from "react-fast-marquee";
+// import Marquee from "react-fast-marquee";
+import Marque from './Marque';
 
 const HeroMarquee = () => {
     return (
@@ -8,7 +8,7 @@ const HeroMarquee = () => {
                 {/* <div className="absolute -top-32 right-0 pr-6 text-Yellow font-khand font-medium text-2xl md:text-3xl tracking-tight">
                     <p className="uppercase">CURRENT HITS</p>
                 </div> */}
-                <Marquee
+                {/* <Marquee
                     autoFill={true}
                     speed={60}
                     gradient={false}
@@ -28,7 +28,8 @@ const HeroMarquee = () => {
                         </span>
                         <img className="h-12 md:h-16 w-auto" src="/logo.webp" alt="" />
                     </div>
-                </Marquee>
+                </Marquee> */}
+                <Marque />
             </div>
         </>
     )
