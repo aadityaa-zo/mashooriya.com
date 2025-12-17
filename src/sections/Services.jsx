@@ -1,14 +1,17 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
+// import { gsap } from 'gsap'-------------------
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from '@gsap/react'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const Services = ({ id }) => {
     const titleRef = useRef(null)
     const servicesRef = useRef([])
+    const sectionRef = useRef(null)
 
-    useEffect(() => {
+    useGSAP(() => {
         // Animate the title on scroll
         gsap.fromTo(
             titleRef.current,
@@ -43,7 +46,10 @@ const Services = ({ id }) => {
                 }
             )
         })
-    }, [])
+    }, {
+        scope: sectionRef,
+        dependencies: [id],
+    })
 
     const addToRefs = (el) => {
         if (el && !servicesRef.current.includes(el)) {
@@ -55,7 +61,10 @@ const Services = ({ id }) => {
         <>
             {/* interval/break for upper section */}
             <div className="w-full h-screen"></div>
-            <div id={id} className="section h-screen w-full bg-Green flex items-center justify-center">
+            <div
+                ref={sectionRef}
+                id={id}
+                className="section h-screen w-full bg-Green flex items-center justify-center">
                 <div className="relative font-['Khand'] uppercase flex flex-col justify-center items-center text-center">
                     <h1
                         ref={titleRef}
@@ -93,7 +102,7 @@ const Services = ({ id }) => {
                     </div>
                 </div>
             </div>
-            </>
+        </>
     )
 }
 

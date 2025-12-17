@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { gsap } from "gsap";
+// import { gsap } from "gsap"; ---------------------
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import AboutDevsCard from "../components/AboutDevsCard";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -9,32 +11,6 @@ const About = ({ id }) => {
   const headingRefs = useRef([]);
   const buttonRef = useRef(null);
   const containerRef = useRef(null);
-  // const paragraphRef = useRef(null);
-
-  // const devs = [
-  //   {
-  //     name: "Aditya Mishra",
-  //     image: "/About/Aditya_Mishra.png",
-  //     cardClasses: "sm:translate-y-0 translate-y-20",
-  //     bg: "bg-Purple",
-  //     border: "border-Dark",
-  //     cardRotation: "-rotate-3",
-  //     textColor: "text-Dark",
-  //     zIndex: "z-20",
-  //     offsetClasses: "lg:-rotate-2",
-  //   },
-  //   {
-  //     name: "Anmol Dhand",
-  //     image: "/About/Anmol_Dhand.png",
-  //     cardClasses: "sm:translate-x-0 translate-x-20",
-  //     bg: "bg-Green",
-  //     border: "border-Dark",
-  //     cardRotation: "rotate-3",
-  //     textColor: "text-Yellow",
-  //     zIndex: "z-10",
-  //     offsetClasses: "lg:rotate-2",
-  //   },
-  // ];
 
   // helper to add refs
   const addToRefs = (el) => {
@@ -43,20 +19,7 @@ const About = ({ id }) => {
     }
   };
 
-  useEffect(() => {
-
-
-
-    // ScrollTrigger.create({
-    //   trigger: `#${id}`,
-    //   start: "top top",
-    //   // endTrigger: "#team-section",
-    //   end: "bottom top",
-    //   pin: true,
-    //   pinSpacing: false,
-    //   scrub: true,
-    // });
-
+  useGSAP(() => {
     // Animate each heading line
     headingRefs.current.forEach((el, i) => {
       gsap.fromTo(
@@ -95,7 +58,9 @@ const About = ({ id }) => {
       );
     }
 
-  }, []);
+  }, {
+    scope: containerRef, // 🔥 important
+  });
 
   return (
     <div id={id} ref={containerRef} className="relative z-0 w-full">
@@ -125,7 +90,7 @@ const About = ({ id }) => {
         </div>
       </div>
 
-  {/*  */}
+      {/*  */}
     </div>
   );
 };

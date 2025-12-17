@@ -1,12 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+// import { gsap } from "gsap";-------------------------------  
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AboutDevsCard from "../components/AboutDevsCard";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function TeamSection({ id }) {
     const paragraphRef = useRef(null);
+    const sectionRef = useRef(null);
 
     const devs = [
         {
@@ -32,12 +35,11 @@ function TeamSection({ id }) {
             offsetClasses: "lg:rotate-2",
         },
     ];
-    useEffect(() => {
+    useGSAP(() => {
 
         ScrollTrigger.create({
-            trigger: `#${id}`,
+            trigger: sectionRef.current,
             start: "top top",
-            endTrigger: "#team-section",
             end: "bottom top",
             pin: true,
             pinSpacing: false,
@@ -62,13 +64,19 @@ function TeamSection({ id }) {
                 },
             );
         }
-    }, [])
+    }, {
+        scope: sectionRef,
+        dependencies: [id],
+    })
 
     return (
         <>
             {/* interval/break for upper section */}
             {/* <div className="w-full h-[80vh]"></div> */}
-            <div id={id} className="bg-Yellow flex z-10 min-h-screen md:h-screen items-center px-4 sm:px-6 md:px-10 pb-12 md:pb-20">
+            <div
+                ref={sectionRef}
+                id={id}
+                className="bg-Yellow flex z-10 min-h-screen md:h-screen items-center px-4 sm:px-6 md:px-10 pb-12 md:pb-20 overflow-hidden">
                 <div id={id} className=" bg-Yellow z-1 md:pt-[10vh] mx-auto w-full">
                     {/* Team Cards Container */}
                     <div className="md:h-auto h-[70vh] md:scale-100 scale-75 flex flex-col items-center justify-center gap-10 lg:flex-row lg:items-start lg:justify-center sm:-translate-x-2 lg:-translate-x-3">

@@ -18,7 +18,7 @@ const Loader = ({ isLoading }) => {
   if (!shouldRender) return null;
 
   return (
-    <div className={`loader-overlay flex flex-col ${isLoading ? "" : "hidden"}`}>
+    <div className={`loader-overlay items-center justify-center w-full h-full flex flex-col ${isLoading ? "" : "hidden"}`}>
       <img src={logo} alt="" className="w-[30vw] blink" />
       <p className="text-[2rem] py-4">LOADING<span className="">...</span> </p>
       {/* <div className="loader-spinner"></div> */}

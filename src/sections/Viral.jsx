@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import ViralSongsCard from "../components/ViralSongsCard";
 import { gsap } from "gsap";
+// import { gsap } from "gsap";---------------------------
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,6 +11,7 @@ const Viral = ({ id }) => {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const cardsRef = useRef([]);
+  const containerRef = useRef(null);
 
   const cardData = [
     {
@@ -41,72 +44,96 @@ const Viral = ({ id }) => {
     },
   ];
 
-  useEffect(() => {
+  useGSAP(() => {
     if (
       !sectionRef.current ||
       !titleRef.current ||
+      !containerRef.current ||
       cardsRef.current.length === 0
     )
       return;
 
-    // a timeline that pins the section and animates cards one by one
+    const isMobile = window.innerWidth < 768;
+
+    // Create spacer height based on number of cards
+    const cardCount = cardsRef.current.length;
+    const spacerHeight = isMobile
+      ? `${cardCount * 100}vh`
+      : `${cardCount * 100}vh`;
+
+    containerRef.current.style.height = spacerHeight;
+
+    // Timeline that pins the section
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: `+=${window.innerHeight * cardsRef.current.length * 0.8}`,
+        end: () => `+=${containerRef.current.offsetHeight} +=100%`,
         scrub: 1,
-        pin: true,
-        pinSpacing: true,
+        pin: sectionRef.current.querySelector('.pinned-content'),
+        pinSpacing: false,
+        markers: false,
+        anticipatePin: 1,
       },
     });
 
+    // Title animation
     gsap.fromTo(
       titleRef.current,
-      { y: "50vh"},
+      { y: "50vh" },
       {
-        y: "0 vh",
-        scale: 1,
+        y: "0vh",
         ease: "power3.out",
         scrollTrigger: {
-          trigger: titleRef.current,
-          start: "top 160%",
-          end: "top 10%",
+          trigger: sectionRef.current,
+          start: "top 90%",
+          end: "bottom bottom",
           scrub: true,
+          // markers: true,
         },
-      },
+      }
     );
 
-    // Animate each card one after another, stacking on top
+    // Animate each card
     cardsRef.current.forEach((el, index) => {
       if (el) {
-        gsap.set(el, { zIndex: index + 1 });
+        gsap.set(el, {
+          zIndex: index + 1,
+          y: "100vh",
+          scale: 0.8,
+        });
 
-        tl.fromTo(
+        // Add to timeline with proper spacing
+        const startProgress = index / cardCount;
+
+        tl.to(
           el,
-          { y: "80vh", scale: 0.7 },
           {
             y: 0,
             scale: 1,
-            opacity: 1,
-            ease: "ease.out",
-            duration: 1,
+            // opacity: 1,
+            ease: "power2.out",
           },
+          startProgress
         );
       }
     });
 
-    // Keep title hidden until all cards are done
-    // Title stays out of the way during the entire animation
+    // Refresh ScrollTrigger on resize
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.vars && trigger.vars.trigger === sectionRef.current) {
-          trigger.kill();
-        }
-      });
+      window.removeEventListener("resize", handleResize);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  },  {
+      scope: sectionRef,
+      dependencies: [id],
+    });
 
   const addToRefs = (el) => {
     if (el && !cardsRef.current.includes(el)) {
@@ -115,28 +142,27 @@ const Viral = ({ id }) => {
   };
 
   return (
-    <div
-      ref={sectionRef}
-      id={id}
-      className="bg-Purple sticky top-0 right-0 flex h-full min-h-screen w-full items-center justify-center overflow-hidden"
-    >
-      <div className="absolute top-0 right-0 z-[100] flex w-full flex-col items-center justify-center">
-        <div
-          ref={titleRef}
-          className="text-Dark relative top-0 left-0 z-10 flex h-screen w-[100vw] max-w-7xl flex-col justify-start sm:justify-center px-4 py-[28vh] text-center leading-[0.75] font-bold sm:px-6 md:px-8 text-[4rem] sm:text-[9rem] md:text-[9.5rem] lg:px-4 lg:text-[12rem]"
-        >
-          <p className="whitespace-nowrap md:whitespace-normal">THE CURRENT</p>
-          <p className="whitespace-nowrap md:whitespace-normal">VIRALS AND</p>
-          <p className="whitespace-nowrap md:whitespace-normal">ARTISTS POPPIN</p>
-        </div>
-      </div>
+    <div ref={sectionRef} id={id} className="relative w-full bg-Purple">
+      {/* spacer div to create scroll distance */}
+      <div ref={containerRef} className="relative w-full" />
 
-      <div className="z-[1000] w-full">
-        <div className="absolute inset-0 top-0 left-0 flex h-screen w-full items-center justify-center">
+      {/* Pinned content */}
+      <div className="pinned-content absolute top-0 left-0 flex h-screen w-full items-center justify-center overflow-hidden bg-Purple">
+        {/* Title */}
+        <div className="absolute top-0 right-0 z-[100] flex w-full flex-col items-center justify-center pointer-events-none">
           <div
-            className="absolute top-0 right-0 flex items-end sm:p-4 p-[20vh] sm:items-center justify-center"
-            style={{ width: "100%", height: "100%" }}
+            ref={titleRef}
+             className="text-Dark relative z-10 flex h-screen w-[100vw] max-w-7xl flex-col justify-start sm:justify-center px-4 py-[28vh] text-center leading-[0.75] font-bold sm:px-6 md:px-8 text-[4rem] sm:text-[9rem] md:text-[9.5rem] lg:px-4 lg:text-[12rem]"
           >
+            <p className="whitespace-nowrap md:whitespace-normal">THE CURRENT</p>
+            <p className="whitespace-nowrap md:whitespace-normal">VIRALS AND</p>
+            <p className="whitespace-nowrap md:whitespace-normal">ARTISTS POPPIN</p>
+          </div>
+        </div>
+
+        {/* Cards container */}
+        <div className="absolute z-[1000] inset-0 flex items-center justify-center">
+          <div className="relative flex h-full w-full pb-[20vh] md:p-0 items-end md:items-center justify-center p-8">
             {cardData.map((card, index) => (
               <div
                 key={index}
@@ -155,11 +181,12 @@ const Viral = ({ id }) => {
             ))}
           </div>
         </div>
-      </div>
 
-      <div className="absolute right-0 bottom-0 z-[1000] m-4">
-        <div className="text-Purple bg-Dark px-4 text-[2rem] leading-[1.2] font-black tracking-[-0.01em] sm:text-[1.5rem] md:text-[2rem] lg:text-[3rem]">
-          More...
+        {/* More button */}
+        <div className="absolute right-0 bottom-0 z-[1000] m-4">
+          <div className="bg-Dark px-4 py-2 font-black leading-[1.2] tracking-[-0.01em] text-Purple text-[1.5rem] sm:text-[2rem] md:text-[2.5rem]">
+            More...
+          </div>
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+// import { gsap } from "gsap"; -----------------------------
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -8,7 +10,7 @@ const BarAnimation = ({ id }) => {
   const containerRef = useRef(null);
   const barsRef = useRef([]);
 
-  useEffect(() => {
+  useGSAP(() => {
     const bars = barsRef.current;
     const barHeights = [95, 85, 95, 95, 90, 90]; // different heights for variety
     const order = [2, 0, 4, 1, 5, 3];
@@ -37,7 +39,9 @@ const BarAnimation = ({ id }) => {
         i * 0.2 // ← sequential offset between bars
       );
     });
-  }, []);
+  }, {
+    scope: containerRef, // 🔥 keeps GSAP on a leash
+  });
 
 
   const barCount = 6;
