@@ -15,6 +15,7 @@ import Clients from "./sections/Clients";
 import BarAnimation from "./sections/BarAnimation";
 import Footer from "./sections/Footer";
 import Form from "./sections/Form";
+import Clipsnreels from "./sections/Clipsnreels";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,7 +46,7 @@ const App = () => {
       duration: 3,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      wheelMultiplier: 3,
+      wheelMultiplier: 1,
     });
 
     function raf(time) {
@@ -74,8 +75,9 @@ const App = () => {
       { id: "#services-section", color: colorMap.Yellow },
       { id: "#client-section", color: colorMap.Green },
       { id: "#originals-section", color: colorMap.Yellow },
+      { id: "#Clipsnreels", color: colorMap.Yellow },
+      { id: "#form-section", color: colorMap.Green },
       { id: "#footer-section", color: colorMap.Yellow },
-      { id: "#form-section", color: colorMap.Yellow },
     ];
 
     sections.forEach((s) => {
@@ -100,8 +102,11 @@ const App = () => {
     <>
       {/* <Loader isLoading={true} /> */}
       <Loader isLoading={isLoading} />
-      <HeroLogo color={logoColor} />
-      <Hero id="hero" />
+      <div className="h-screen">
+        <HeroLogo color={logoColor} />
+        <Hero id="hero" />
+      </div>
+
       <Numbers id="numbers-section" />
       <BarAnimation id="bar-section" />
       <Viral id="viral-section" />
@@ -110,6 +115,7 @@ const App = () => {
       <Services id="services-section" />
       <Clients id="client-section" />
       <Originals id="originals-section" />
+      <Clipsnreels id="Clipsnreels" />
       <Form id="form-section" />
       <Footer id="footer-section" />
     </>

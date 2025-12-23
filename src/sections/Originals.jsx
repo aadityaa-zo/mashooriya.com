@@ -94,7 +94,6 @@ const Originals = ({ id }) => {
                 ref={sectionRef}
                 className="relative bg-Dark min-h-screen w-full overflow-hidden"
             >
-                <div className="pointer-events-none absolute -inset-1 bg-Yellow [clip-path:polygon(0_90%,100%_85%,100%_100%,0_100%)]" />
 
                 <div className="flex flex-col justify-center items-center min-h-screen px-4 sm:px-6 md:px-8 lg:px-16">
 
@@ -105,8 +104,9 @@ const Originals = ({ id }) => {
                                 key={index}
                                 className="
               text-Yellow font-extrabold tracking-tight
-              text-[3.5rem] sm:text-[4.5rem] md:text-[7rem] lg:text-[9.5rem] xl:text-[11.5rem]
+            text-[4rem] sm:text-[9rem] md:text-[9.5rem] lg:px-4 lg:text-[12rem] xl:text-[11.5rem]
               leading-[0.9] sm:leading-[0.85] md:leading-[0.75]
+              
             "
                             >
                                 {line}

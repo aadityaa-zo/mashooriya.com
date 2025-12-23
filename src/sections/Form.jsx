@@ -1,12 +1,12 @@
 export default function Form() {
   return (
-    <div className="relative bg-Yellow min-h-screen flex justify-center items-start p-4 sm:p-6 md:p-10">
+    <div className="relative bg-Yellow min-h-screen flex justify-center items-start p-4 sm:p-6 md:p-10 overflow-hidden">
       
       {/* Background shape */}
       <div className="pointer-events-none absolute -inset-1 bg-Dark 
         [clip-path:polygon(0_90%,100%_85%,100%_100%,0_100%)]" />
 
-      <div className="w-full max-w-full sm:max-w-[90%] md:max-w-[65%]">
+      <div className="w-full max-w-full sm:max-w-[90%] md:max-w-[65%] pt-10 sm:pt-4">
         <form className="w-full flex flex-col gap-10 md:gap-16">
 
           <div className="flex flex-col gap-12 md:gap-20">

@@ -4,7 +4,7 @@ const Footer = ({ id }) => {
   return (
     <div
       id={id}
-      className="w-full bg-Dark flex flex-col justify-end pt-12 md:pt-20"
+      className="w-full bg-Dark flex flex-col justify-end pt-12 md:pt-20 overflow-hidden"
     >
       {/* Top Section */}
       <div className="flex w-full items-center justify-center uppercase">
