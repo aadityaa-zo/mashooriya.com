@@ -64,41 +64,44 @@ const Services = ({ id }) => {
             <div
                 ref={sectionRef}
                 id={id}
-                className="section h-screen w-full bg-Green flex items-center justify-center">
+                className="section h-screen w-full bg-Green flex items-center justify-center overflow-hidden">
                 <div className="relative font-['Khand'] uppercase flex flex-col justify-center items-center text-center">
                     <h1
                         ref={titleRef}
-                        className="text-Yellow font-bold leading-none text-[5rem] md:text-[9.5rem] lg:text-[11.5rem] mb-[-0.90rem]"
+                        className="text-Yellow font-bold leading-none text-[7rem] md:text-[9.5rem] lg:text-[11.5rem] mb-0 md:mb-[-0.90rem]"
                     >
                         Services
                     </h1>
 
                     <div
                         ref={addToRefs}
-                        className="bg-Dark rounded-sm text-Purple w-max px-4 sm:py-2 py-6 pt-4 sm:mt-2 mt-10 md:mt-0 font-extrabold text-4xl md:text-5xl lg:text-7xl xl:text-8xl transform -rotate-2 leading-none my-[-0.5rem]"
+                        className="bg-Dark text-Purple w-max sm:px-15 px-8 sm:py-2 py-6 pt-4 sm:mt-2 mt-10 md:mt-0 font-extrabold text-[4rem] sm:text-[6rem] md:text-9xl lg:text-10xl xl:text-12xl transform -rotate-2 leading-[0.8] md:leading-none my-[-0.5rem] "
                     >
-                        Artist & Repertoire
+                        Artist &
+                        {" "}
+                        <span className='md:hidden'> <br /> </span>
+                        Repertoire
                     </div>
 
                     <div
                         ref={addToRefs}
-                        className="bg-Yellow rounded-sm text-Dark w-max px-4 sm:py-2 py-6 pt-4 font-extrabold text-4xl md:text-5xl lg:text-7xl xl:text-8xl transform rotate-1 leading-none my-[-0.5rem]"
+                        className="bg-Yellow text-Dark w-max sm:px-15 px-8 sm:py-2 py-6 pt-4 font-extrabold text-[4rem] sm:text-[6rem] md:text-9xl lg:text-10xl xl:text-12xl transform rotate-1  leading-[0.8] md:leading-none  my-[-0.5rem]"
                     >
-                        Music Marketing
+                        Music<span className='md:hidden'> <br /> </span>  Marketing
                     </div>
 
                     <div
                         ref={addToRefs}
-                        className="bg-Dark rounded-sm text-Purple w-max px-4 sm:py-2 py-6 pt-4 font-extrabold text-4xl md:text-5xl lg:text-7xl xl:text-8xl transform -rotate-2 leading-none my-[-0.5rem]"
+                        className="bg-Dark text-Purple w-max sm:px-15 px-8 sm:py-2 py-6 pt-4 font-extrabold text-[4rem] sm:text-[6rem] md:text-9xl lg:text-10xl xl:text-12xl transform -rotate-2  leading-[0.8] md:leading-none  my-[-0.5rem]"
                     >
-                        Artist Development
+                        Artist <span className='md:hidden'> <br /> </span>  Development
                     </div>
 
                     <div
                         ref={addToRefs}
-                        className="bg-Yellow rounded-sm text-Dark w-max px-2 sm:py-2 py-4 pt-4 font-extrabold text-4xl md:text-5xl lg:text-7xl xl:text-8xl transform -rotate-4 leading-none my-[-0.5rem]"
+                        className="bg-Yellow text-Dark w-max sm:py-2 sm:px-15 px-8 pt-4 font-extrabold text-[4rem] sm:text-[6rem] md:text-9xl lg:text-10xl xl:text-12xl transform rotate-1 leading-[0.8] md:leading-none my-[-0.5rem]"
                     >
-                        Content & Rollout Design
+                        Content &<span className='md:hidden'> <br /> </span>  Rollout
                     </div>
                 </div>
             </div>

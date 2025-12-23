@@ -45,13 +45,13 @@ const About = ({ id }) => {
         buttonRef.current,
         { y: "50vh", scale: 0.8 },
         {
-          y: "0vh",
+          y: "-10vh",
           scale: 1,
-          ease: "power3.out",
+          ease: "ease",
           scrollTrigger: {
             trigger: buttonRef.current,
             start: "top 160%",
-            end: "top 110%",
+            end: "top 60%",
             scrub: true,
           },
         },
@@ -59,7 +59,7 @@ const About = ({ id }) => {
     }
 
   }, {
-    scope: containerRef, // 🔥 important
+    scope: containerRef, 
   });
 
   return (
@@ -81,7 +81,7 @@ const About = ({ id }) => {
                 ref={buttonRef}
                 className="absolute right-0 bottom-10 sm:-bottom-8 -rotate-6 p-2 md:-right-4 md:-bottom-10"
               >
-                <div className="bg-Dark/95 text-Yellow transform border-2 px-2 py-1 text-3xl font-bold md:px-2 md:text-2xl lg:text-6xl translate-y-1 sm:-translate-y-20 ">
+                <div className="bg-Dark/95 text-Yellow transform border-2 px-2 py-1 text-3xl font-bold md:px-2 md:text-2xl lg:text-6xl translate-y-1 sm:-translate-y-15 ">
                   <span className="flex pt-2">ABOUT US</span>
                 </div>
               </div>
