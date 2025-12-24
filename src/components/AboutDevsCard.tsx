@@ -6,10 +6,27 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
+interface Dev {
+  name: string;
+  image: string;
+  cardClasses: string;
+  bg: string;
+  border: string;
+  cardRotation: string;
+  textColor: string;
+  zIndex: string;
+  offsetClasses: string;
+}
+
+interface AboutDevsCardProps {
+  dev: Dev;
+  index: number;
+}
+
 /**
  * Single developer card with scroll-in animation.
  */
-function AboutDevsCard({ dev, index }) {
+function AboutDevsCard({ dev, index }: AboutDevsCardProps) {
   const cardRef = useRef(null);
 
   useGSAP(

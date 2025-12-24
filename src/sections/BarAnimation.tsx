@@ -6,9 +6,13 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const BarAnimation = ({ id }) => {
-  const containerRef = useRef(null);
-  const barsRef = useRef([]);
+interface BarAnimationProps {
+  id: string;
+}
+
+const BarAnimation = ({ id }: BarAnimationProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const barsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useGSAP(() => {
     const bars = barsRef.current;
@@ -53,11 +57,11 @@ const BarAnimation = ({ id }) => {
       ref={containerRef}
       className="bg-transparent relative w-full h-[80%]"
     >
-      <div className="absolute bottom-0 z-[-1] bg-Yellow w-full h-[100%]"></div>
+      <div className="absolute bottom-0 z-[-1] bg-Yellow w-full h-full"></div>
       {[...Array(barCount)].map((_, i) => (
         <div
           key={i}
-          ref={(el) => (barsRef.current[i] = el)}
+          ref={(el) => { barsRef.current[i] = el; }}
           className="absolute bottom-0 bg-Purple border-Green border-b-0"
           style={{
             left: `${i * barWidth}%`,

@@ -6,7 +6,15 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function NumberTitles(props) {
+interface NumberTitlesProps {
+  number: string | React.ReactNode;
+  text: string | React.ReactNode;
+  classes: string;
+  initialRotate: number;
+  secondRotate: number;
+}
+
+function NumberTitles(props: NumberTitlesProps) {
   const tile1Ref = useRef(null);
 
   // OLD SCRAPPY EFFECT (COMMENTED OUT, NOT DELETED)

@@ -1,21 +1,22 @@
+"use client"
 import { useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import HeroLogo from "./components/HeroLogo";
-import Loader from "./components/Loader";
-import Hero from "./sections/Hero";
-import Numbers from "./sections/Numbers";
-import Viral from "./sections/Viral";
-import About from "./sections/About";
-import Services from "./sections/Services";
-import TeamSection from "./sections/TeamSection";
-import Originals from "./sections/Originals";
-import Clients from "./sections/Clients";
-import BarAnimation from "./sections/BarAnimation";
-import Footer from "./sections/Footer";
-import Form from "./sections/Form";
-import Clipsnreels from "./sections/Clipsnreels";
+import HeroLogo from "@/components/HeroLogo";
+import Loader from "@/components/Loader";
+import Hero from "@/sections/Hero";
+import Numbers from "@/sections/Numbers";
+import Viral from "@/sections/Viral";
+import About from "@/sections/About";
+import Services from "@/sections/Services";
+import TeamSection from "@/sections/TeamSection";
+import Originals from "@/sections/Originals";
+import Clients from "@/sections/Clients";
+import BarAnimation from "@/sections/BarAnimation";
+import Footer from "@/sections/Footer";
+import Form from "@/sections/Form";
+import Clipsnreels from "@/sections/Clipsnreels";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,7 +50,7 @@ const App = () => {
       wheelMultiplier: 1,
     });
 
-    function raf(time) {
+    function raf(time: number) {
       lenis.raf(time);
       ScrollTrigger.update();
       requestAnimationFrame(raf);

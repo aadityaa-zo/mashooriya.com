@@ -1,14 +1,17 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
+interface HeroLogoProps {
+  color: string;
+}
 
-const HeroLogo = ({color}) => {
+const HeroLogo = ({ color }: HeroLogoProps) => {
 
-    const animationIdRef = useRef(null);
+    const animationIdRef = useRef<number | null>(null);
     const pausedRef = useRef(false);
-    const hoveredRectIdRef = useRef(null);
+    const hoveredRectIdRef = useRef<string | null>(null);
     const bassHitCounterRef = useRef(0);
-    const frozenStatesRef = useRef({});
+    const frozenStatesRef = useRef<Record<string, { height: number; y: number }>>({});
     const logoLockedRef = useRef(false);
 
     const rects = [
@@ -43,7 +46,7 @@ const HeroLogo = ({color}) => {
     
 
 
-    function getBassIntensity(time) {
+    function getBassIntensity(time: number) {
         const cycleTime = time % 2.0;
         let prevHit = bassPattern[bassPattern.length - 1];
         let nextHit = bassPattern[0];
@@ -63,7 +66,7 @@ const HeroLogo = ({color}) => {
 
     function triggerBassFlash() {
         rects.forEach((r) => {
-            const rect = document.getElementById(r.id);
+            const rect = document.getElementById(r.id) as HTMLElement | null;
             if (rect) {
                 rect.classList.remove("bass-hit");
                 
@@ -73,7 +76,8 @@ const HeroLogo = ({color}) => {
         });
     }
 
-    function setRectHeight(rect, rectData, newHeight) {
+    function setRectHeight(rect: HTMLElement | null, rectData: { id: string; baseHeight: number; baseY: number }, newHeight: number) {
+        if (!rect) return;
         let newY;
         if (rectData.baseY < 0) {
             if (rectData.id === "rect6") {
@@ -90,8 +94,8 @@ const HeroLogo = ({color}) => {
                 newY = rectData.baseY + heightDiff;
             }
         }
-        rect.setAttribute("height", newHeight);
-        rect.setAttribute("y", newY);
+        rect.setAttribute("height", String(newHeight));
+        rect.setAttribute("y", String(newY));
 
         if (!pausedRef.current) {
             frozenStatesRef.current[rectData.id] = { height: newHeight, y: newY };
@@ -106,15 +110,15 @@ const HeroLogo = ({color}) => {
 
         if (pausedRef.current) {
             rects.forEach((rectData) => {
-                const rect = document.getElementById(rectData.id);
+                const rect = document.getElementById(rectData.id) as HTMLElement | null;
                 if (!rect) return;
 
                 if (hoveredRectIdRef.current === rectData.id) {
                     const newHeight = rectData.baseHeight * 1.1;
                     setRectHeight(rect, rectData, newHeight);
                 } else {
-                    rect.setAttribute("height", rectData.baseHeight);
-                    rect.setAttribute("y", rectData.baseY);
+                    rect.setAttribute("height", String(rectData.baseHeight));
+                    rect.setAttribute("y", String(rectData.baseY));
                 }
             });
             animationIdRef.current = requestAnimationFrame(animate);
@@ -131,7 +135,7 @@ const HeroLogo = ({color}) => {
         const scaleMultiplier = 1 + bassIntensity * 0.4;
 
         rects.forEach((rectData) => {
-            const rect = document.getElementById(rectData.id);
+            const rect = document.getElementById(rectData.id) as HTMLElement | null;
             if (rect) {
                 const newHeight = rectData.baseHeight * scaleMultiplier;
                 setRectHeight(rect, rectData, newHeight);
@@ -168,7 +172,7 @@ const HeroLogo = ({color}) => {
         // svg.addEventListener("mouseleave", handleSvgLeave);
 
         rects.forEach((r) => {
-            const rectEl = document.getElementById(r.id);
+            const rectEl = document.getElementById(r.id) as HTMLElement | null;
             if (rectEl) {
                 rectEl.addEventListener("mouseenter", () => {
                     if (pausedRef.current && !logoLockedRef.current) {
@@ -183,14 +187,16 @@ const HeroLogo = ({color}) => {
             }
         });
 
-        const handleAnimationEnd = (e) => {
-            if (e.target.classList.contains("bass-hit")) {
-                e.target.classList.remove("bass-hit");
+        const handleAnimationEnd = (e: AnimationEvent) => {
+            const target = e.target as HTMLElement;
+            if (target && target.classList.contains("bass-hit")) {
+                target.classList.remove("bass-hit");
             }
         };
         document.addEventListener("animationend", handleAnimationEnd);
 
         // === GSAP transition on scroll ===
+        if (!svg) return;
         let mm = gsap.matchMedia();
         mm.add(
             {
@@ -198,7 +204,7 @@ const HeroLogo = ({color}) => {
                 isDesktop: "(min-width: 769px)",
             },
             (context) => {
-                let { isMobile, isDesktop } = context.conditions;
+                const { isMobile, isDesktop } = context.conditions || {};
 
                 gsap.to(svg, {
                     scrollTrigger: {
@@ -220,7 +226,9 @@ const HeroLogo = ({color}) => {
         );
 
         return () => {
-            cancelAnimationFrame(animationIdRef.current);
+            if (animationIdRef.current !== null) {
+                cancelAnimationFrame(animationIdRef.current);
+            }
             // svg.removeEventListener("mouseenter", handleSvgEnter);
             // svg.removeEventListener("mouseleave", handleSvgLeave);
             document.removeEventListener("animationend", handleAnimationEnd);
@@ -235,7 +243,7 @@ const HeroLogo = ({color}) => {
 
         if (svg) {
             gsap.to(svg.querySelectorAll("polygon, rect"), {
-                fill: (color == "Dark") ? "#1A2027": color,
+                fill: (color === "Dark") ? "#1A2027": color,
                 duration: 0.01, // smooth transition
                 overwrite: true
             });

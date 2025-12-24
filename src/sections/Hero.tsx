@@ -1,7 +1,11 @@
 import React from 'react'
 import HeroMarquee from '../components/HeroMarquee';
 
-const Hero = ({id}) => {
+interface HeroProps {
+  id: string;
+}
+
+const Hero = ({ id }: HeroProps) => {
     return (
         <section
             id={id}

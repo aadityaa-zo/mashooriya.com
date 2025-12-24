@@ -7,9 +7,13 @@ import NumberTitles from "../components/NumberTitles";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Numbers = ({ id }) => {
-  const titleRef = useRef(null);
-  const containerRef = useRef(null);
+interface NumbersProps {
+  id: string;
+}
+
+const Numbers = ({ id }: NumbersProps) => {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // OLD SCRAPPY useEffect (COMMENTED, NOT REMOVED)
   /*

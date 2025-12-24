@@ -7,11 +7,15 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Viral = ({ id }) => {
-  const sectionRef = useRef(null);
-  const titleRef = useRef(null);
-  const cardsRef = useRef([]);
-  const containerRef = useRef(null);
+interface ViralProps {
+  id: string;
+}
+
+const Viral = ({ id }: ViralProps) => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const cardData = [
     {
@@ -68,7 +72,7 @@ const Viral = ({ id }) => {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: () => `+=${containerRef.current.offsetHeight} +=100%`,
+        end: () => containerRef.current ? `+=${containerRef.current.offsetHeight} +=100%` : "+=100%",
         scrub: 1,
         pin: sectionRef.current.querySelector('.pinned-content'),
         pinSpacing: false,
@@ -135,7 +139,7 @@ const Viral = ({ id }) => {
       dependencies: [id],
     });
 
-  const addToRefs = (el) => {
+  const addToRefs = (el: HTMLDivElement | null) => {
     if (el && !cardsRef.current.includes(el)) {
       cardsRef.current.push(el);
     }

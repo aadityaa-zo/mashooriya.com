@@ -1,12 +1,20 @@
 import React from "react";
 
+interface ViralSongsCardProps {
+  songName: string;
+  artistName: string;
+  image: string;
+  rotation: number;
+  bgColor?: string;
+}
+
 const ViralSongsCard = ({
   songName,
   artistName,
   image,
   rotation,
   bgColor = "var(--Green)",
-}) => {
+}: ViralSongsCardProps) => {
   return (
     <div
       className={`font-khand text-Dark border-Dark relative overflow-hidden px-4 py-8 text-center font-bold tracking-tight backdrop-blur-sm `}

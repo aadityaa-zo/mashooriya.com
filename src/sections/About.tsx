@@ -7,13 +7,17 @@ import AboutDevsCard from "../components/AboutDevsCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const About = ({ id }) => {
-  const headingRefs = useRef([]);
-  const buttonRef = useRef(null);
-  const containerRef = useRef(null);
+interface AboutProps {
+  id: string;
+}
+
+const About = ({ id }: AboutProps) => {
+  const headingRefs = useRef<(HTMLElement | null)[]>([]);
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // helper to add refs
-  const addToRefs = (el) => {
+  const addToRefs = (el: HTMLElement | null) => {
     if (el && !headingRefs.current.includes(el)) {
       headingRefs.current.push(el);
     }

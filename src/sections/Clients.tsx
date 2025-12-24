@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
-const Clients = ({ id }) => {
+interface ClientsProps {
+  id: string;
+}
+
+const Clients = ({ id }: ClientsProps) => {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {

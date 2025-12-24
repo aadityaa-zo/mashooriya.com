@@ -2,8 +2,6 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(useGSAP);
-
 // const urls = [
 //     "https://cdn.prod.website-files.com/61c05cf1fe36bc5723b06446/65a41e0fd45a9d6862d11e06_Schlu%CC%88tersche.avif",
 //     "https://cdn.prod.website-files.com/61c05cf1fe36bc5723b06446/65a41d6337b6a1c4fafc1416_Zalando.avif",
@@ -19,11 +17,12 @@ gsap.registerPlugin(useGSAP);
 // const urlss = [...urls, ...urls];
 
 const Marque = () => {
-    const [width, setWidth] = useState(null);
-    const trackRef = useRef(null);
+    const [width, setWidth] = useState<number | null>(null);
+    const trackRef = useRef<HTMLDivElement>(null);
 
     useGSAP(
         () => {
+            if (!trackRef.current) return;
             const width = trackRef.current.getBoundingClientRect().width;
             const gap = parseInt(window.getComputedStyle(trackRef.current).gap);
 

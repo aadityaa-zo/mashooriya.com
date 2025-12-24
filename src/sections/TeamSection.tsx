@@ -7,9 +7,13 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function TeamSection({ id }) {
-    const paragraphRef = useRef(null);
-    const sectionRef = useRef(null);
+interface TeamSectionProps {
+  id: string;
+}
+
+function TeamSection({ id }: TeamSectionProps) {
+    const paragraphRef = useRef<HTMLParagraphElement>(null);
+    const sectionRef = useRef<HTMLDivElement>(null);
 
     const devs = [
         {

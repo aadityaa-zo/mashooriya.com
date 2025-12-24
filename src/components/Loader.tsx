@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import "../styles/Loader.css";
-import logo from "../../public/logo.svg"
+// import logo from "../a"
 
-const Loader = ({ isLoading }) => {
+interface LoaderProps {
+  isLoading: boolean;
+}
+
+const Loader = ({ isLoading }: LoaderProps) => {
   const [shouldRender, setShouldRender] = useState(true);
 
   useEffect(() => {
@@ -19,7 +23,7 @@ const Loader = ({ isLoading }) => {
 
   return (
     <div className={`loader-overlay items-center justify-center w-full h-full flex flex-col ${isLoading ? "" : "hidden"}`}>
-      <img src={logo} alt="" className="w-[30vw] blink" />
+      <img src="/logo.svg" alt="" className="w-[30vw] blink" />
       <p className="text-[2rem] py-4">LOADING<span className="">...</span> </p>
       {/* <div className="loader-spinner"></div> */}
     </div>

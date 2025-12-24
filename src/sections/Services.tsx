@@ -6,10 +6,14 @@ import { useGSAP } from '@gsap/react'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const Services = ({ id }) => {
-    const titleRef = useRef(null)
-    const servicesRef = useRef([])
-    const sectionRef = useRef(null)
+interface ServicesProps {
+  id: string;
+}
+
+const Services = ({ id }: ServicesProps) => {
+    const titleRef = useRef<HTMLHeadingElement>(null)
+    const servicesRef = useRef<(HTMLDivElement | null)[]>([])
+    const sectionRef = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
         // Animate the title on scroll
@@ -51,7 +55,7 @@ const Services = ({ id }) => {
         dependencies: [id],
     })
 
-    const addToRefs = (el) => {
+    const addToRefs = (el: HTMLDivElement | null) => {
         if (el && !servicesRef.current.includes(el)) {
             servicesRef.current.push(el)
         }

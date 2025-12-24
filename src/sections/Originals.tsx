@@ -4,12 +4,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Originals = ({ id }) => {
+interface OriginalsProps {
+  id: string;
+}
+
+const Originals = ({ id }: OriginalsProps) => {
     const [displayText, setDisplayText] = useState('')
     const [hasAnimated, setHasAnimated] = useState(false)
-    const subtitleRef = useRef(null)
-    const buttonRef = useRef(null)
-    const sectionRef = useRef(null)
+    const subtitleRef = useRef<HTMLHeadingElement>(null)
+    const buttonRef = useRef<HTMLButtonElement>(null)
+    const sectionRef = useRef<HTMLDivElement>(null)
     const fullText = 'EXPLORE\nMASHOORIYA\nORIGINALS'
 
     useEffect(() => {
