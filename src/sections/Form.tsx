@@ -16,8 +16,8 @@ export default function Form({ id = "form-section" }: FormProps) {
           <div className="flex flex-col gap-12 md:gap-20">
 
             {/* NAME */}
-            <div className="relative border-[4px] sm:border-[6px] border-Dark p-4 sm:p-5">
-              <span className="absolute -top-8 sm:-top-12 left-3 bg-Dark text-Yellow px-3 sm:px-4 py-1 sm:py-2 font-bold text-lg sm:text-2xl md:text-4xl rotate-[-6deg]">
+            <div className="relative border-4 sm:border-[6px] border-Dark p-4 sm:p-5">
+              <span className="absolute -top-8 sm:-top-12 left-3 bg-Dark text-Yellow px-3 sm:px-4 py-1 sm:py-2 font-bold text-lg sm:text-2xl md:text-4xl -rotate-6">
                 NAME
               </span>
 
@@ -32,7 +32,7 @@ export default function Form({ id = "form-section" }: FormProps) {
 
             {/* EMAIL */}
             <div className="relative border-[4px] sm:border-[6px] border-Dark p-4 sm:p-5">
-              <span className="absolute -top-8 sm:-top-12 left-3 bg-Dark text-Yellow px-3 sm:px-4 py-1 sm:py-2 font-bold text-lg sm:text-2xl md:text-4xl rotate-[-6deg]">
+              <span className="absolute -top-8 sm:-top-12 left-3 bg-Dark text-Yellow px-3 sm:px-4 py-1 sm:py-2 font-bold text-lg sm:text-2xl md:text-4xl -rotate-6">
                 EMAIL
               </span>
 

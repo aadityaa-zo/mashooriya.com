@@ -47,7 +47,7 @@ const Footer = ({ id }: FooterProps) => {
       <div className="text-Yellow w-full flex items-center justify-center py-8">
         <img
           src="./team zeroone made this!.png"
-          className="max-w-[200px] md:max-w-none"
+          className="max-w-50 md:max-w-none"
           alt=""
         />
       </div>
