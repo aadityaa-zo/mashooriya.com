@@ -20,7 +20,7 @@ import Clipsnreels from "@/sections/Clipsnreels";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const App = () => {
+const Page = () => {
   const [logoColor, setLogoColor] = useState("Yellow");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -72,7 +72,7 @@ const App = () => {
       { id: "#bar-section", color: colorMap.Dark },
       { id: "#viral-section", color: colorMap.Dark },
       { id: "#about-section", color: colorMap.Green },
-      { id: "#team-section", color: colorMap.Green },
+      // { id: "#team-section", color: colorMap.Green }, 
       { id: "#services-section", color: colorMap.Yellow },
       { id: "#client-section", color: colorMap.Green },
       { id: "#originals-section", color: colorMap.Yellow },
@@ -112,7 +112,7 @@ const App = () => {
       <BarAnimation id="bar-section" />
       <Viral id="viral-section" />
       <About id="about-section" />
-      <TeamSection id="team-section" />
+      {/* <TeamSection id="team-section" /> */}
       <Services id="services-section" />
       <Clients id="client-section" />
       <Originals id="originals-section" />
@@ -123,4 +123,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Page;

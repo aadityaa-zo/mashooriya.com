@@ -23,20 +23,16 @@ const ViralSongsCard = ({
 
       }}
     >
-      <div className="relative w-full top-0 right-0 left-0 h-full">
-        <img src={image} alt="" className="w-[40vw] sm:w[30vw] md:w-[30vw] lg:w-[20vw] " loading="lazy" />
-      </div>
-
-      <div className="absolute top-0 flex w-full h-full items-end justify-start  ">
+       <div className="top-0 flex w-full h-full items-end justify-start  ">
         <div
-          className={`w-full py-4 ${
+          className={`w-full ${
             bgColor === "var(--Green)"
-              ? "from-Green via-Green/70 to-Green/20 bg-gradient-to-t"
-              : "from-Yellow via-Yellow/70 to-Yellow/20 bg-gradient-to-t"
-          }`}
+              ? "bg-Green"
+              : "bg-Yellow"        
+  }`}
         >
           <div
-            className="mb-2 h-full text-left leading-[0.7] uppercase"
+            className="h-full text-left leading-[0.7] uppercase"
             style={{
               color:
                 bgColor === "var(--Green)" ? "var(--Yellow)" : "var(--Green)",
@@ -47,7 +43,7 @@ const ViralSongsCard = ({
             </span>
           </div>
           <div
-            className="mb-2 text-left leading-[1] uppercase"
+            className=" text-left leading-none uppercase"
             style={{
               color:
                 bgColor === "var(--Green)" ? "var(--Yellow)" : "var(--Green)",
@@ -57,6 +53,46 @@ const ViralSongsCard = ({
               BY {artistName}
             </span>
           </div>
+        </div>
+      </div>
+
+      <div className="relative w-full top-0 right-0 left-0 h-full">
+        <img src={image} alt="" className="w-[40vw] sm:w[30vw] md:w-[30vw] lg:w-[20vw] " loading="lazy" />
+      </div>
+
+      <div className="absolute top-0 flex w-full h-full items-end justify-start  ">
+        <div
+          className={`w-full py-4 ${
+            bgColor === "var(--Green)"
+              ? "from-Green via-Green/70 to-Green/20 bg-linear-to-t"
+              : "from-Yellow via-Yellow/70 to-Yellow/20 bg-linear-to-t"
+          }`}
+        >
+          <div
+            className="mb-2 h-full text-left leading-[0.7] uppercase"
+            style={{
+              color:
+                bgColor === "var(--Green)" ? "var(--Yellow)" : "var(--Green)",
+            }}
+          >
+            <span className="text-[2rem] font-black tracking-[-0.02em] sm:text-[2rem] md:text-[3rem] lg:text-[4rem] flex flex-col gap-1">
+              {/* {songName} */}
+              <p>viral 50</p>
+              <p>spotify india</p>
+            </span>
+          </div>
+          {/* <div
+            className="mb-2 text-left leading-none uppercase"
+            style={{
+              color:
+                bgColor === "var(--Green)" ? "var(--Yellow)" : "var(--Green)",
+            }}
+          >
+            <span className="text-[0.5rem] font-extrabold sm:text-[1rem] md:text-[2rem] lg:text-[2rem]">
+               BY {artistName}
+              spotify india
+            </span>
+          </div> */}
         </div>
       </div>
     </div>

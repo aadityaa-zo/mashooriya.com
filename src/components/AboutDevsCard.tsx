@@ -27,61 +27,58 @@ interface AboutDevsCardProps {
  * Single developer card with scroll-in animation.
  */
 function AboutDevsCard({ dev, index }: AboutDevsCardProps) {
-  const cardRef = useRef(null);
+  // const cardRef = useRef(null);
 
-  useGSAP(
-    () => {
-      const fromLeft = index % 2 === 0;
+  // useGSAP(
+  //   () => {
+  //     const fromLeft = index % 2 === 0;
 
-      gsap.fromTo(
-        cardRef.current,
-        {
-          y: fromLeft ? "50vh" : "50vh",
-          rotation: fromLeft ? -12 : 12,
-          scale: 0,
-        },
-        {
-          y: fromLeft ? "0vh" : "2vh",
-          rotation: 0,
-          scale: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: cardRef.current,
-            start: "top 150%",
-            end: "top 20%",
-            scrub: 0.1,
-          },
-        }
-      );
-    },
-    {
-      scope: cardRef,
-      dependencies: [index],
-    }
-  );
+  //     gsap.fromTo(
+  //       cardRef.current,
+  //       {
+  //         y: fromLeft ? "50vh" : "50vh",
+  //         rotation: fromLeft ? -12 : 12,
+  //         scale: 0,
+  //       },
+  //       {
+  //         y: fromLeft ? "0vh" : "2vh",
+  //         rotation: 0,
+  //         scale: 1,
+  //         ease: "power3.out",
+  //         scrollTrigger: {
+  //           trigger: cardRef.current,
+  //           start: "top 150%",
+  //           end: "top 20%",
+  //           scrub: 0.1,
+  //         },
+  //       }
+  //     );
+  //   },
+  //   {
+  //     scope: cardRef,
+  //     dependencies: [index],
+  //   }
+  // );
 
   return (
     <div
-      ref={cardRef}
+      // ref={cardRef}
       className={`relative ${dev.zIndex} ${dev.offsetClasses} transform transition-transform duration-300 hover:rotate-0`}
     >
       <div
-        className={`${dev.bg} ${dev.border} ${dev.cardRotation} ${dev.cardClasses} w-full overflow-hidden border-4 p-2 sm:p-4`}
+        className={`${dev.bg} ${dev.border} ${dev.cardRotation} ${dev.cardClasses} w-full overflow-hidden border-4 p-2 sm:p-4 `}
       >
         <div
           className="
-            relative border-4 border-black overflow-hidden
-            h-[240px] sm:h-[300px] md:h-[270px] lg:h-[380px]
-            md:w-[400px] lg:w-[450px]
-            w-full min-w-[360px]
+            relative border-4 border-black overflow-hidden h-60 sm:h-75 md:h-67.5 lg:h-95 w-full
           "
         >
-          <img src={dev.image} alt={dev.name} className="h-full md:w-full min-w-[390px]" />
+          <img src={dev.image} alt={dev.name} className="h-full md:w-full object-cover min-w-98" />
         </div>
 
         <div className={`${dev.bg} px-2 py-1`}>
           <h3
-            className={`${dev.textColor} text-center text-6xl sm:text-7xl font-bold md:text-7xl lg:text-11xl`}
+            className={`${dev.textColor} text-center text-6xl sm:text-7xl font-bold md:text-8xl lg:text-11xl`}
           >
             {dev.name.toUpperCase()}
           </h3>
