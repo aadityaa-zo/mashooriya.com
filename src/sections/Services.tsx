@@ -64,7 +64,7 @@ const Services = ({ id }: ServicesProps) => {
     return (
         <>
             {/* interval/break for upper section */}
-            <div className="w-full h-screen"></div>
+            {/* <div className="w-full h-screen"></div> */}
             <div
                 ref={sectionRef}
                 id={id}

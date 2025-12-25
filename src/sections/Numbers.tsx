@@ -107,7 +107,7 @@ const Numbers = ({ id }: NumbersProps) => {
             number="6X"
             text={
               <>
-                average <br /> engagement rate
+                average engagement rate
               </>
             }
             initialRotate={-6}
@@ -120,7 +120,7 @@ const Numbers = ({ id }: NumbersProps) => {
             number="28M+"
             text={
               <>
-                views <br /> across campaigns
+                views across campaigns
               </>
             }
             initialRotate={-10}
@@ -133,7 +133,7 @@ const Numbers = ({ id }: NumbersProps) => {
             number="50+"
             text={
               <>
-                virals <br /> this year
+                virals this year
               </>
             }
             initialRotate={8}

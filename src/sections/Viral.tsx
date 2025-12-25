@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 // import { gsap } from "gsap";---------------------------
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -187,10 +188,10 @@ const Viral = ({ id }: ViralProps) => {
         </div>
 
         {/* More button */}
-        <div className="absolute right-0 bottom-0 z-[1000] m-4">
-          <div className="bg-Dark px-4 py-2 font-black leading-[1.2] tracking-[-0.01em] text-Purple text-[1.5rem] sm:text-[2rem] md:text-[2.5rem]">
-            More...
-          </div>
+        <div className="absolute right-0 bottom-0 z-1000 m-4">
+          <Link href="/songs" className="bg-Dark px-4 font-black leading-[1.2] tracking-[-0.01em] text-Purple text-[1.5rem] sm:text-[2rem] md:text-[2.5rem]">
+            see More
+          </Link>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -140,17 +141,11 @@ const Originals = ({ id }: OriginalsProps) => {
                         <button
                             ref={buttonRef}
                             className="
-            bg-Yellow text-Dark border-2 border-Dark rounded-lg
-            font-extrabold rotate-[-8deg]
-            px-4 sm:px-6
-            text-xl sm:text-4xl md:text-5xl xl:text-7xl
-            h-[2.5rem] sm:h-[3.5rem] md:h-[4.5rem]
-            flex items-center justify-center
-            hover:bg-opacity-90 transition-all duration-300
-            transform hover:scale-105 opacity-0
-          "
+            bg-Yellow text-Dark border-2 border-Dark rounded-lg font-extrabold rotate-[-8deg] text-xl sm:text-4xl md:text-5xl xl:text-7xl h-10 sm:h-14 md:h-18 flex items-center justify-center hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 opacity-0          "
                         >
+                            <Link href="/originals" className='px-4 sm:px-6 '>
                             <span className="block leading-none">DIVE IN</span>
+                            </Link>
                         </button>
                     </div>
                 </div>
