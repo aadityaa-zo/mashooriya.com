@@ -70,7 +70,7 @@ function AboutDevsCard({ dev, index }: AboutDevsCardProps) {
       >
         <div
           className="
-            relative border-4 border-black overflow-hidden h-60 sm:h-75 md:h-67.5 lg:h-95 w-full
+            relative border-4 border-black overflow-hidden h-70 sm:h-80 md:h-80 lg:h-95 w-full
           "
         >
           <img src={dev.image} alt={dev.name} className="h-full md:w-full object-cover min-w-98" />

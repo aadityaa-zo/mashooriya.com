@@ -17,6 +17,7 @@ import BarAnimation from "@/sections/BarAnimation";
 import Footer from "@/sections/Footer";
 import Form from "@/sections/Form";
 import Clipsnreels from "@/sections/Clipsnreels";
+import SongCard from "@/components/SongCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -102,7 +103,7 @@ const Page = () => {
   return (
     <>
       {/* <Loader isLoading={true} /> */}
-      <Loader isLoading={isLoading} />
+      {/* <Loader isLoading={isLoading} /> */}
       <div className="h-screen">
         <HeroLogo color={logoColor} />
         <Hero id="hero" />
@@ -111,6 +112,7 @@ const Page = () => {
       <Numbers id="numbers-section" />
       <BarAnimation id="bar-section" />
       <Viral id="viral-section" />
+      {/* <SongCard card="viral" limit={4} id="viral-section"/> */}
       <About id="about-section" />
       {/* <TeamSection id="team-section" /> */}
       <Services id="services-section" />

@@ -80,7 +80,7 @@ function TeamSection({ id }: TeamSectionProps) {
             <div
                 ref={sectionRef}
                 id={id}
-                className="bg-Yellow flex creen items-center px-4 sm:px-6 md:px-10 pb-12 md:pb-20 overflow-hidden z-100">
+                className="bg-Yellow flex creen items-center px-4 sm:px-6 md:px-10 overflow-hidden z-100">
                 <div id={id} className=" bg-Yellow z-1 md:pt-[10vh] mx-auto w-full">
                     {/* Team Cards Container */}
                     <div className="md:h-auto h-[70vh] md:scale-100 scale-75 flex flex-col items-center justify-center lg:flex-row lg:items-start lg:justify-center sm:-translate-x-2 lg:-translate-x-3">
@@ -94,7 +94,7 @@ function TeamSection({ id }: TeamSectionProps) {
                     <div className="mt-10 sm:mt-12 md:mt-16 lg:mt-20 w-full text-center">
                         <p
                             ref={paragraphRef}
-                            className=" text-Dark mx-auto w-full max-w-7xl pt-4 lg:pt-8 text-xl sm:text-xl md:text-3xl lg:text-4xl font-bold leading-none sm:leading-[1] md:leading-[0.9] lg:leading-[0.8]"
+                            className=" text-Dark mx-auto w-full max-w-7xl pt-4 px-2 tracking-tighter lg:pt-8 text-xl sm:text-xl md:text-3xl lg:text-4xl font-bold leading-none sm:leading-1 md:leading-[0.9] lg:leading-[0.8]"
                         >
                             MASHOORIYA FUSES MUSIC, CULTURE, AND STRATEGY TO AMPLIFY
                             INDEPENDENT VOICES. WE CRAFT CAMPAIGNS THAT FEEL LIKE CULTURE
