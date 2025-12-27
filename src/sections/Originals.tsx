@@ -107,12 +107,7 @@ const Originals = ({ id }: OriginalsProps) => {
                         {lines.map((line, index) => (
                             <h1
                                 key={index}
-                                className="
-              text-Yellow font-extrabold tracking-tight
-            text-[4rem] sm:text-[9rem] md:text-[9.5rem] lg:px-4 lg:text-[12rem] xl:text-[11.5rem]
-              leading-[0.9] sm:leading-[0.85] md:leading-[0.75]
-              
-            "
+                                className="text-Yellow font-extrabold tracking-tight text-[6rem] sm:text-[9rem] md:text-[9.5rem] lg:px-4 lg:text-[12rem] xl:text-[11.5rem] leading-[0.9] sm:leading-[0.85] md:leading-[0.75]"
                             >
                                 {line}
                                 {index === lines.length - 1 &&
@@ -126,12 +121,7 @@ const Originals = ({ id }: OriginalsProps) => {
                     {/* Subtitle */}
                     <h3
                         ref={subtitleRef}
-                        className="
-          text-Green font-bold text-center tracking-tight opacity-0
-          text-xl sm:text-2xl md:text-4xl lg:text-5xl 2xl:text-6xl
-          leading-tight sm:leading-[0.9]
-          px-4 mt-4
-        "
+                        className="text-Green font-bold text-center tracking-tight opacity-0 text-4xl sm:text-2xl md:text-4xl lg:text-5xl 2xl:text-6xl leading-tight sm:leading-[0.9] px-4 mt-4"
                     >
                         OUR OWN GROWN MUSIC LABEL
                     </h3>
@@ -140,10 +130,9 @@ const Originals = ({ id }: OriginalsProps) => {
                     <div className="mt-4 sm:mt-4 md:-mt-2 flex justify-center">
                         <button
                             ref={buttonRef}
-                            className="
-            bg-Yellow text-Dark border-2 border-Dark rounded-lg font-extrabold rotate-[-8deg] text-xl sm:text-4xl md:text-5xl xl:text-7xl h-10 sm:h-14 md:h-18 flex items-center justify-center hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 opacity-0          "
+                            className="bg-Yellow text-Dark border-2 border-Dark rounded-lg font-extrabold rotate-[-8deg] text-5xl sm:text-4xl md:text-5xl xl:text-7xl flex items-center justify-center hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 opacity-0          "
                         >
-                            <Link href="/originals" className='px-4 sm:px-6 '>
+                            <Link href="/originals" className='px-4 sm:px-6'>
                             <span className="block leading-none">DIVE IN</span>
                             </Link>
                         </button>

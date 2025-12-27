@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react";
+import RingLoader from "@/components/RingLoader"
 
 interface FormProps {
   id?: string;
@@ -57,25 +58,21 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   }
 };
 
-
-
-
-
-
   return (
-    <div id={id} className="relative bg-Yellow min-h-screen flex justify-center items-start p-4 sm:p-6 md:p-10 overflow-hidden">
+    <div id={id} className="relative bg-Yellow min-h-screen flex justify-center items-start p-4 sm:p-6 md:p-4 lg:p-10 overflow-hidden">
       
       {/* Background shape */}
       <div className="pointer-events-none absolute -inset-1 bg-Dark 
         [clip-path:polygon(0_90%,100%_85%,100%_100%,0_100%)]" />
 
-      <div className="w-full max-w-full flex gap-2 sm:gap-5 md:gap-10 px-[2vw] md:px-[5vw] pt-10 sm:pt-4">
+      <div className="w-full max-w-full flex gap-15 md:gap-15 px-[2vw] md:px-[5vw] pt-10 sm:pt-4 flex-wrap md:flex-nowrap">
 
 
         <div className="w-full text-Dark uppercase">
           <p className="text-6xl sm:text-7xl md:text-9xl font-bold">get in touch!</p>
           <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-Dark/50">get in touch to know more about our services & other dope things!!</p>
         </div>
+
         <form
         onSubmit={handleSubmit}
         className="w-full flex flex-col gap-10 md:gap-16">
@@ -142,7 +139,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             type="submit"
             className="w-full relative bg-Dark text-Yellow text-3xl sm:text-4xl md:text-5xl font-bold py-3 sm:py-4 cursor-pointer uppercase"
           >
-           {loading ? "loading...":" hit upp!"}
+           {loading ? <RingLoader/> :" hit upp!"}
          
             <div className={`absolute transition-all -bottom-full w-full text-Dark bg-Yellow text-xl sm:text-2xl md:text-3xl font-bold py-3 sm:py-4 duration-300 cursor-pointer uppercase ${error? "scale-100":"scale-0"}`}>
              {error}

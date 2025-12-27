@@ -94,7 +94,6 @@ const Viral = ({ id }: ViralProps) => {
           start: "top 90%",
           end: "bottom bottom",
           scrub: true,
-          // markers: true,
         },
       }
     );
@@ -116,7 +115,6 @@ const Viral = ({ id }: ViralProps) => {
           {
             y: 0,
             scale: 1,
-            // opacity: 1,
             ease: "power2.out",
           },
           startProgress
@@ -154,10 +152,10 @@ const Viral = ({ id }: ViralProps) => {
       {/* Pinned content */}
       <div className="pinned-content absolute top-0 left-0 flex h-screen w-full items-center justify-center overflow-hidden bg-Purple">
         {/* Title */}
-        <div className="absolute top-0 right-0 z-[100] flex w-full flex-col items-center justify-center pointer-events-none">
+        <div className="absolute top-0 right-0 z-100 flex w-full flex-col items-center justify-center pointer-events-none">
           <div
             ref={titleRef}
-             className="text-Dark relative z-10 flex h-screen w-[100vw] max-w-7xl flex-col justify-start sm:justify-center px-4 py-[28vh] text-center leading-[0.75] font-bold sm:px-6 md:px-8 text-[4rem] sm:text-[9rem] md:text-[9.5rem] lg:px-4 lg:text-[12rem]"
+             className="text-Dark relative z-10 flex h-screen w-screen max-w-7xl flex-col justify-start sm:justify-center px-4 py-[28vh] text-center leading-[0.75] font-bold sm:px-6 md:px-8 text-[4rem] sm:text-[9rem] md:text-[9.5rem] lg:px-4 lg:text-[12rem]"
           >
             <p className="whitespace-nowrap md:whitespace-normal">THE CURRENT</p>
             <p className="whitespace-nowrap md:whitespace-normal">VIRALS AND</p>
@@ -166,7 +164,7 @@ const Viral = ({ id }: ViralProps) => {
         </div>
 
         {/* Cards container */}
-        <div className="absolute z-[1000] inset-0 flex items-center justify-center">
+        <div className="absolute z-1000 inset-0 flex items-center justify-center">
           <div className="relative flex h-full w-full pb-[20vh] md:p-0 items-end md:items-center justify-center p-8">
             {cardData.map((card, index) => (
               <div
