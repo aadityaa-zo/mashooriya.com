@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import "../styles/Loader.css";
-// import logo from "../a"
 
 interface LoaderProps {
   isLoading: boolean;
@@ -11,24 +9,41 @@ const Loader = ({ isLoading }: LoaderProps) => {
 
   useEffect(() => {
     if (!isLoading) {
-      // Wait for fade-out animation to complete before removing from DOM
       const timer = setTimeout(() => {
         setShouldRender(false);
-      }, 500); // Match CSS transition duration
+      }, 500); 
       return () => clearTimeout(timer);
+    } else {
+      setShouldRender(true);
     }
   }, [isLoading]);
 
   if (!shouldRender) return null;
 
   return (
-    <div className={`loader-overlay items-center justify-center w-full h-full flex flex-col ${isLoading ? "" : "hidden"}`}>
-      <img src="/logo.svg" alt="" className="w-[30vw] blink" />
-      <p className="text-[2rem] py-4">LOADING<span className="">...</span> </p>
-      {/* <div className="loader-spinner"></div> */}
+    <div
+      className={`
+        fixed inset-0 bg-black flex flex-col items-center justify-center z-9999
+        transition-all duration-500 ease-out
+        ${isLoading ? "opacity-100 visible" : "opacity-0 invisible"}
+      `}
+    >
+      {/* <img
+        src="/logo.svg"
+        alt="Loading"
+        className="w-[30vw] animate-pulse opacity-50"
+      /> */}
+
+       <span className="tracking-widest pb-10">
+         <div className="w-12 h-12 border-4 border-yellow-900/20 border-t-yellow-300 rounded-full animate-spin" />
+        </span>
+
+      <p className="text-4xl py-4 text-white">
+        LOADING...
+      </p>
+
     </div>
   );
 };
 
 export default Loader;
-

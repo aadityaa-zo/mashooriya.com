@@ -20,24 +20,26 @@ const About = ({ id }: AboutProps) => {
         {
             name: "Aditya Mishra",
             image: "/About/Aditya_Mishra.png",
-            cardClasses: "sm:-translate-y-6 translate-y-20",
+            cardClasses: "sm:-translate-y-6 sm:translate-x-10 translate-y-20",
             bg: "bg-Purple",
             border: "border-Dark",
             cardRotation: "-rotate-1",
             textColor: "text-Dark",
             zIndex: "z-20",
             offsetClasses: "lg:-rotate-2",
+            text: "Mashooriya fuses music, culture, and strategy to amplify independent voices. We craft campaigns that feel like culture itself—driven by street insight and sharp creativity so artists, brands, and stories don't just appear, they resonate."
         },
         {
             name: "Anmol Dhand",
             image: "/About/Anmol_Dhand.png",
-            cardClasses: "sm:translate-x-0 translate-x-5",
+            cardClasses: "sm:translate-x-10 translate-x-5 sm:-translate-y-20 md:-translate-y-10 -translate-y-5",
             bg: "bg-Green",
             border: "border-Dark",
             cardRotation: "rotate-1",
             textColor: "text-Yellow",
-            zIndex: "z-10",
+            zIndex: "",
             offsetClasses: "lg:rotate-2",
+            text: "Mashooriya fuses music, culture, and strategy to amplify independent voices. We craft campaigns that feel like culture itself—driven by street insight and sharp creativity so artists, brands, and stories don't just appear, they resonate."
         },
     ];
 

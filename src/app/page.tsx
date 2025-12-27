@@ -10,7 +10,6 @@ import Numbers from "@/sections/Numbers";
 import Viral from "@/sections/Viral";
 import About from "@/sections/About";
 import Services from "@/sections/Services";
-import TeamSection from "@/sections/TeamSection";
 import Originals from "@/sections/Originals";
 import Clients from "@/sections/Clients";
 import BarAnimation from "@/sections/BarAnimation";
@@ -18,6 +17,7 @@ import Footer from "@/sections/Footer";
 import Form from "@/sections/Form";
 import Clipsnreels from "@/sections/Clipsnreels";
 import SongCard from "@/components/SongCard";
+import OurClientSays from "@/sections/OurClientSays";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,6 +76,7 @@ const Page = () => {
       // { id: "#team-section", color: colorMap.Green }, 
       { id: "#services-section", color: colorMap.Yellow },
       { id: "#client-section", color: colorMap.Green },
+      { id: "#ourclientsays-section", color: colorMap.Green },
       { id: "#originals-section", color: colorMap.Yellow },
       { id: "#Clipsnreels", color: colorMap.Yellow },
       { id: "#form-section", color: colorMap.Green },
@@ -103,7 +104,7 @@ const Page = () => {
   return (
     <>
       {/* <Loader isLoading={true} /> */}
-      {/* <Loader isLoading={isLoading} /> */}
+      <Loader isLoading={isLoading} />
       <div className="h-screen">
         <HeroLogo color={logoColor} />
         <Hero id="hero" />
@@ -116,6 +117,7 @@ const Page = () => {
       <About id="about-section" />
       {/* <TeamSection id="team-section" /> */}
       <Services id="services-section" />
+      <OurClientSays id="ourclientsays-section"/>
       <Clients id="client-section" />
       <Originals id="originals-section" />
       <Clipsnreels id="Clipsnreels" />
