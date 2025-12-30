@@ -59,7 +59,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 };
 
   return (
-    <div id={id} className="relative bg-Yellow min-h-screen flex justify-center items-start p-4 sm:p-6 md:p-4 lg:p-10 overflow-hidden">
+    <div id={id} className="relative bg-Yellow min-h-[calc(100vh+10vh)] flex justify-center items-start p-4 sm:p-6 md:p-4 lg:p-10 overflow-hidden">
       
       {/* Background shape */}
       <div className="pointer-events-none absolute -inset-1 bg-Dark 

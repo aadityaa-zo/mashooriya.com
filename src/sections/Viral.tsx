@@ -155,7 +155,7 @@ const Viral = ({ id }: ViralProps) => {
         <div className="absolute top-0 right-0 z-100 flex w-full flex-col items-center justify-center pointer-events-none">
           <div
             ref={titleRef}
-             className="text-Dark relative z-10 flex h-screen w-screen max-w-7xl flex-col justify-start sm:justify-center px-4 py-[28vh] text-center leading-[0.75] font-bold sm:px-6 md:px-8 text-[4rem] sm:text-[9rem] md:text-[9.5rem] lg:px-4 lg:text-[12rem]"
+             className="text-Dark relative z-10 flex h-screen w-screen max-w-7xl flex-col justify-center items-center px-4 py-[28vh] text-center leading-[0.75] font-bold sm:px-6 md:px-8 text-[4rem] sm:text-[9rem] md:text-[9.5rem] lg:px-4 lg:text-[12rem]"
           >
             <p className="whitespace-nowrap md:whitespace-normal">THE CURRENT</p>
             <p className="whitespace-nowrap md:whitespace-normal">VIRALS AND</p>
@@ -165,7 +165,7 @@ const Viral = ({ id }: ViralProps) => {
 
         {/* Cards container */}
         <div className="absolute z-1000 inset-0 flex items-center justify-center">
-          <div className="relative flex h-full w-full pb-[20vh] md:p-0 items-end md:items-center justify-center p-8">
+          <div className="relative flex h-full w-full md:p-0 items-center md:items-center justify-center p-8">
             {cardData.map((card, index) => (
               <div
                 key={index}

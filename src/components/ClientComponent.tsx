@@ -1,29 +1,17 @@
 "use client"
 import { useState, useEffect } from "react";
+import Loader from "@/components/Loader";
 import { gsap } from "gsap";
+import HeroLogo from "@/components/HeroLogo";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import HeroLogo from "@/components/HeroLogo";
-import Loader from "@/components/Loader";
-import Hero from "@/sections/Hero";
-import Numbers from "@/sections/Numbers";
-import Viral from "@/sections/Viral";
-import About from "@/sections/About";
-import Services from "@/sections/Services";
-import Originals from "@/sections/Originals";
-import Clients from "@/sections/Clients";
-import BarAnimation from "@/sections/BarAnimation";
-import Footer from "@/sections/Footer";
-import Form from "@/sections/Form";
-import Clipsnreels from "@/sections/Clipsnreels";
-import SongCard from "@/components/SongCard";
-import OurClientSays from "@/sections/OurClientSays";
-import NavBar from "@/components/NavBar";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Page = () => {
-  const [logoColor, setLogoColor] = useState("Yellow");
+
+function clientComponent() {
+
+ const [logoColor, setLogoColor] = useState("Yellow");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -41,6 +29,7 @@ const Page = () => {
       return () => window.removeEventListener("load", handleLoad);
     }
   }, []);
+
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -102,31 +91,13 @@ const Page = () => {
     };
   }, []);
 
+
   return (
     <>
-      {/* <Loader isLoading={true} /> */}
       <Loader isLoading={isLoading} />
-      <div className="h-screen">
-        <HeroLogo color={logoColor} />
-        <Hero id="hero" themeColor="Yellow"/>
-        <NavBar themeColor="Yellow"/>
-      </div>
-
-      <Numbers id="numbers-section" />
-      <BarAnimation id="bar-section" />
-      <Viral id="viral-section" />
-      {/* <SongCard card="viral" limit={4} id="viral-section"/> */}
-      <About id="about-section" />
-      {/* <TeamSection id="team-section" /> */}
-      <Services id="services-section" />
-      <OurClientSays id="ourclientsays-section"/>
-      <Clients id="client-section" />
-      <Originals id="originals-section" />
-      <Clipsnreels id="Clipsnreels" />
-      <Form id="form-section" />
-      <Footer id="footer-section" />
+      <HeroLogo color="#AF9FFF"/>
     </>
-  );
-};
+  )
+}
 
-export default Page;
+export default clientComponent

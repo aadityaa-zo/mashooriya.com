@@ -1,7 +1,8 @@
+"use client"
 import { useEffect, useState } from "react";
 
 interface LoaderProps {
-  isLoading: boolean;
+  isLoading?: boolean;
 }
 
 const Loader = ({ isLoading }: LoaderProps) => {
