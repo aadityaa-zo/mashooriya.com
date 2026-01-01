@@ -1,3 +1,4 @@
+// for the main page
 import React from "react";
 
 interface ViralSongsCardProps {

@@ -1,3 +1,4 @@
+// for /originals page
 import React from "react";
 
 interface ViralSongsCardProps2 {
@@ -5,6 +6,7 @@ interface ViralSongsCardProps2 {
   artistName: string;
   image: string;
   rotation: number;
+  positioning:string
 }
 
 const ViralSongsCard2 = ({
@@ -12,17 +14,18 @@ const ViralSongsCard2 = ({
   artistName,
   image,
   rotation,
+  positioning
 }: ViralSongsCardProps2) => {
   return (
     <div
-      className={`font-khand text-Dark border-Dark relative max-w-80 lg:max-w-100 scale-105 md:scale-100 overflow-hidden px-4 p-8 text-center font-bold tracking-tighter border bg-Purple h-full`}
+      className={`font-khand text-Dark border-Dark relative max-w-80 lg:max-w-100 scale-105 md:scale-100 overflow-hidden px-4 pt-8 text-center font-bold tracking-tighter border bg-Purple h-full ${positioning}`}
       style={{
         transform: `rotate(${rotation || 0}deg)`,
       }}
     >      
         {/* image section */}
       <div className={`w-full`}>
-        <img src={image} alt="" className="w[90%] md:w-[30vw] lg:w-[20vw]" loading="lazy" />
+        <img src={image} alt="" className="w[100%] md:w-[30vw] lg:w-[20vw]" loading="lazy" />
       </div>
 
       <div className="flex w-full h-full items-end justify-start  ">
@@ -39,7 +42,7 @@ const ViralSongsCard2 = ({
 
           <div
             className=" text-left leading-none uppercase line-clamp-1 overflow-hidden text-Dark">
-            <span className="text-[1rem] font-extrabold sm:text-[1rem] md:text-[2rem] lg:text-[2rem] line-clamp-1 leading-[0.8] overflow-hidden">
+            <span className="text-[1.5rem] font-extrabold sm:text-[1rem] md:text-[2rem] lg:text-[2rem] line-clamp-1 leading-[0.8] overflow-hidden">
               BY {artistName}
             </span>
           </div>

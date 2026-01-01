@@ -36,12 +36,11 @@ export default async function SongCard({ limit, cardOnSong  , id ,noRotate,class
   }
 
   return (
-    <div className={`relative w-full flex items-center overflow-y-hidden [&::-webkit-scrollbar]:w-12 overflow-x-auto ${limit && "flex-wrap justify-center"} ${!limit && "pl-30 md:pl-50 lg:pl-110"} ${cardOnSong} px-10`}>
+    <div className={`relative w-full flex items-center flex-wrap justify-center ${cardOnSong} px-10`}>
       {visibleSongs.map((song: any, index:number) => {
 
-        const rotation =  noRotate ? 0 : index === 0 ? 2 : index === 1 ? -2 : 1;
-        const classes =  classToApply;
-        const isLimited = limit
+        const rotation =  index === 0 ? 2 : index === 1 ? -4 : 2;  
+        const positionClass =  index === 0 ? "top-4" : index === 1 ? "sm:top-10 sm:left-0 left-6" : "top-0";  
         return(
         <div key={song.id} style={{ marginBottom: 20 }} className=" ">
           <ViralSongsCard2
@@ -49,6 +48,7 @@ export default async function SongCard({ limit, cardOnSong  , id ,noRotate,class
             songName={song.name}
             artistName={song.artists}
             rotation={rotation}
+            positioning={positionClass}
             />
             </div>
         )
