@@ -1,5 +1,4 @@
 // for /originals page
-import React from "react";
 
 interface ViralSongsCardProps2 {
   songName: string;
@@ -18,7 +17,7 @@ const ViralSongsCard2 = ({
 }: ViralSongsCardProps2) => {
   return (
     <div
-      className={`font-khand text-Dark border-Dark relative max-w-80 lg:max-w-100 scale-105 md:scale-100 overflow-hidden px-4 pt-8 text-center font-bold tracking-tighter border bg-Purple h-full ${positioning}`}
+      className={`font-khand text-Dark border-Dark relative max-w-80 lg:max-w-100 scale-105 md:scale-100 overflow-hidden p-3 text-center font-bold tracking-tighter border bg-Purple h-full ${positioning}`}
       style={{
         transform: `rotate(${rotation || 0}deg)`,
       }}

@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react'
 
 interface ClientsProps {
   id: string;

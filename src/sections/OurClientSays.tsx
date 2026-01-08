@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 
 type OurClientSaysPropType = {
     id: string;
@@ -70,5 +70,3 @@ export default function OurClientSays({id}:OurClientSaysPropType) {
     </div>
   );
 }
-
-{/* export default OurClientSays */}

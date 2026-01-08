@@ -1,6 +1,5 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
-// import { gsap } from "gsap"; ---------------------
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import AboutDevsCard from "../components/AboutDevsCard";
@@ -51,6 +50,11 @@ const About = ({ id }: AboutProps) => {
   };
 
   useGSAP(() => {
+
+    const ctx = gsap.context(() => {
+//to clean all the scroll memory so animation runs everytme neatly
+    ScrollTrigger.clearScrollMemory()
+
     // Animate each heading line
     headingRefs.current.forEach((el, i) => {
       gsap.fromTo(
@@ -89,8 +93,12 @@ const About = ({ id }: AboutProps) => {
       );
     }
 
+    }, containerRef)
+
+    return () => ctx.revert()
   }, {
     scope: containerRef, 
+    revertOnUpdate: true, // IMPORTANT
   });
 
   return (
@@ -131,7 +139,6 @@ const About = ({ id }: AboutProps) => {
         </div>
       </div>
 
-      {/*  */}
     </div>
   );
 };

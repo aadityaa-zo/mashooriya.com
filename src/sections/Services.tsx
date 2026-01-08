@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { gsap } from 'gsap'
-// import { gsap } from 'gsap'-------------------
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 
@@ -89,14 +88,14 @@ const Services = ({ id }: ServicesProps) => {
 
                     <div
                         ref={addToRefs}
-                        className="bg-Yellow text-Dark w-full md:w-max sm:px-15 px-8 sm:py-2 py-6 pt-4 font-extrabold text-[4rem] sm:text-[6rem] md:text-9xl lg:text-10xl xl:text-12xl transform rotate-1  leading-[0.8] md:leading-none  sm:my-[-0.5rem]"
+                        className="bg-Yellow text-Dark w-full md:w-max sm:px-15 px-8 sm:py-2 py-6 pt-4 font-extrabold text-[4rem] sm:text-[6rem] md:text-9xl lg:text-10xl xl:text-12xl transform rotate-1  leading-[0.8] md:leading-none sm:my-[-0.5rem]"
                     >
                         Music<span className='md:hidden'> <br /> </span>  Marketing
                     </div>
 
                     <div
                         ref={addToRefs}
-                        className="bg-Dark text-Purple w-full md:w-max sm:px-15 px-8 sm:py-2 py-6 pt-4 font-extrabold text-[4rem] sm:text-[6rem] md:text-9xl lg:text-10xl xl:text-12xl transform -rotate-2  leading-[0.8] md:leading-none  sm:my-[-0.5rem]"
+                        className="bg-Dark text-Purple w-full md:w-max sm:px-15 px-8 sm:py-2 py-6 pt-4 font-extrabold text-[4rem] sm:text-[6rem] md:text-9xl lg:text-10xl xl:text-12xl transform -rotate-2  leading-[0.8] md:leading-none sm:my-[-0.5rem]"
                     >
                         Artist <span className='md:hidden'> <br /> </span>  Development
                     </div>

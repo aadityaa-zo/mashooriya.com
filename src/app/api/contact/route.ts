@@ -41,146 +41,40 @@ export async function POST(req: Request) {
 //     <link href="https://fonts.googleapis.com/css2?family=Khand:wght@400;600;700&display=swap" rel="stylesheet">
 
 //     <style>
-//         * {
-//             margin: 0;
-//             padding: 0;
-//             box-sizing: border-box;
-//             font-family: "Khand", sans-serif;
-//         }
+//         * {margin: 0;padding: 0;box-sizing: border-box;font-family: "Khand", sans-serif;}
 
-//         body {
-//             background: #1A2027;
-//             display: flex;
-//           flex-direction:column;
-//             justify-content: center;
-//             align-items: center;
-//             min-height: 100vh;
-//             padding: 20px;
-//         }
+//         body {background: #1A2027;display: flex;flex-direction:column;justify-content: center;align-items: center;min-height: 100vh;padding: 20px;}
 
-//         .form-container {
-//             width: 100%;
-//             max-width: 65%;
-//         }
-//         .input-box {
-//             position: relative;
-//             margin-bottom: 45px;
-//             border: 6px solid #AE9FFF;
-//             padding: 1rem;
-//         }
-//         .label {
-//             position: absolute;
-//             top: -1.8rem;
-//             left: 0.7rem;
-//             background: #AE9FFF;
-//             color: #1A2027;
-//             padding: 0 1rem;
-//             font-size: 1.6rem;
-//             font-weight: 700;
-//             transform: rotate(-6deg);
-//         }
+//         .form-container {width: 100%;max-width: 65%;}
+//         .input-box {position: relative;margin-bottom: 45px;border: 6px solid #AE9FFF;padding: 1rem;}
+//         .label {position: absolute;top: -1.8rem;left: 0.7rem;background: #AE9FFF;color: #1A2027;padding: 0 1rem;font-size: 1.6rem;font-weight: 700;transform: rotate(-6deg);}
 
 //         .label p,
-//         .btn p {
-//             margin-top: 3px;
-//         }
+//         .btn p {margin-top: 3px;}
 
 //         .input-box input,
-//         .input-box textarea:not(.lined-input) {
-//             width: 100%;
-//             border: none;
-//             outline: none;
-//             background: transparent;
-//             font-size: 2.1rem;
-//             font-weight: 700;
-//             color: #AE9FFF;
-//             padding: 0;
-//             margin: 0;
-//             line-height: 2.5rem;
-//         }
+//         .input-box textarea:not(.lined-input) {width: 100%;border: none;outline: none;background: transparent;font-size: 2.1rem;font-weight: 700;color: #AE9FFF;padding: 0;margin: 0;line-height: 2.5rem;}
 
-//         .input-box textarea:not(.lined-input) {
-//             resize: vertical;
-//             height: 100px;
-//             padding-top: 2px;
-//             line-height: 2.8rem;
-//         }
+//         .input-box textarea:not(.lined-input) {resize: vertical;height: 100px;padding-top: 2px;line-height: 2.8rem;}
 
-//         .line {
-//             position: absolute;
-//             left: 1rem;
-//             right: 1rem;
-//             height: 6px;
-//             background: #AE9FFF;
-//         }
+//         .line {position: absolute;left: 1rem;right: 1rem;height: 6px;background: #AE9FFF;}
 
-//         .input-box .line {
-//             bottom: 1rem;
-//         }
+//         .input-box .line {bottom: 1rem;}
 
 
-//         .message-card {
-//             position: relative;
-//             border: 6px solid #AE9FFF;
-//             padding: 0.9rem 1rem 1rem 1rem;
-//             background-color: #1A2027;
-//             margin-bottom: 45px;
-//         }
+//         .message-card {position: relative;border: 6px solid #AE9FFF;padding: 0.9rem 1rem 1rem 1rem;background-color: #1A2027;margin-bottom: 45px;}
 
-//         textarea.lined-input {
-//             width: 100%;
-//             height: 200px;
-//             box-sizing: border-box;
-//             background-color: #1A2027;
-//             border: none;
-//             outline: none;
-//             resize: none;
-//             padding: 0;
+//         textarea.lined-input {width: 100%;height: 200px;box-sizing: border-box;background-color: #1A2027;border: none;outline: none;resize: none;padding: 0;font-family: "Khand", sans-serif;font-weight: 700;font-size: 2.1rem;line-height: 2.8rem;color: #AE9FFF;text-transform: none;background-image: repeating-linear-gradient(transparent,transparent 2.6rem,#AE9FFF 2.6rem,#AE9FFF 3rem);background-attachment: local;}
 
-//             font-family: "Khand", sans-serif;
-//             font-weight: 700;
-//             font-size: 2.1rem;
-//             line-height: 2.8rem;
-//             color: #AE9FFF;
-//             text-transform: none;
-//             background-image: repeating-linear-gradient(transparent,
-//                     transparent 2.6rem,
-//                     #AE9FFF 2.6rem,
-//                     #AE9FFF 3rem);
-//             background-attachment: local;
-//         }
-
-//         textarea.lined-input::placeholder {
-//             color: #AE9FFF;
-//             opacity: 1;
-//         }
-//         input::placeholder {
-//             color: #AE9FFF;
-//             opacity: 1;
-//         }
+//         textarea.lined-input::placeholder {color: #AE9FFF;opacity: 1;}
+//         input::placeholder {color: #AE9FFF;opacity: 1;  }
 
 
-//         .btn {
-//             width: 100%;
-//             background: #AE9FFF;
-//             color: #1A2027;
-//             border: none;
-//             font-size: 2.2rem;
-//             font-weight: 700;
-//             cursor: pointer;
-//         }
+//         .btn {width: 100%;background: #AE9FFF;color: #1A2027;border: none;font-size: 2.2rem;font-weight: 700;cursor: pointer;}
 
-//         @media(max-width:768px) {
-//             .form-container {
-//                 max-width: 80%;
-//             }
-//         }
+//         @media(max-width:768px) {.form-container {max-width: 80%;} }
 
-//         @media(max-width:468px) {
-//             .form-container {
-//                 max-width: 100%;
-//             }
-//         }
+//         @media(max-width:468px) { .form-container { max-width: 100%;  }  }
       
 //        .footer { text-align: center; padding: 30px; font-size: 14px; color: #888; }
 //             .footer img { height: 60px; margin-bottom: 15px; }

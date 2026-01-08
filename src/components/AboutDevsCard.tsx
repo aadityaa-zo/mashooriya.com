@@ -1,10 +1,5 @@
-import React, { useRef } from "react";
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
-// import { gsap } from "gsap"; ---------------------
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface Dev {
   name: string;
@@ -24,63 +19,94 @@ interface AboutDevsCardProps {
   index: number;
 }
 
-/**
- * Single developer card with scroll-in animation.
- */
-function AboutDevsCard({ dev, index }: AboutDevsCardProps) {
-  
-// const text = dev.text || "Mashooriya fuses music, culture, and strategy to amplify independent voices. We craft campaigns that feel like culture itself—driven by street insight and sharp creativity so artists, brands, and stories don't just appear, they resonate.";
+function AboutDevsCard({ dev }: AboutDevsCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const flipped = useRef(false);
+
+  useEffect(() => {
+    // reset transform on mount
+    gsap.set(cardRef.current, { rotateY: 0 });
+
+    return () => {
+      // kill animations on unmount
+      gsap.killTweensOf(cardRef.current);
+    };
+  }, []);
+
+  const flipCard = () => {
+    flipped.current = !flipped.current;
+
+    gsap.to(cardRef.current, {
+      rotateY: flipped.current ? 180 : 0,
+      duration: 0.6,
+      ease: "power2.inOut",
+    });
+  };
 
   return (
     <div
-      // ref={cardRef}
-      className={`relative ${dev.zIndex} ${dev.offsetClasses} group transition-all duration-300 hover:rotate-0`}
+      className={`relative ${dev.zIndex} ${dev.offsetClasses}  w-110 h-85 md:w-150 md:h-125`}
+      style={{ perspective: "1000px" }}
+      onClick={flipCard}
     >
-        <div>
-            <div
-              className={`${dev.bg} ${dev.border} ${dev.cardRotation} ${dev.cardClasses} w-[90%] md:w-full overflow-hidden group-hover:opacity-0 border-4 p-2 sm:p-4 `}
-            >
-              <div
-                className="relative border-4 border-black overflow-hidden h-60 sm:h-75 md:h-80 lg:h-95 w-full"
-              >
-                <img src={dev.image} alt={dev.name} className="h-[101%] w-full md:w-[105%] object-fit min-w-97" />
-              </div>
-
-              <div className={`${dev.bg} px-2 py-1`}>
-                <h3
-                  className={`${dev.textColor} text-center text-5xl sm:text-7xl font-bold md:text-8xl lg:text-11xl`}
-                >
-                  {dev.name.toUpperCase()}
-                </h3>
-              </div>
-              </div>
+      
+      <div
+        ref={cardRef}
+        className="relative w-full h-full cursor-pointer"
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        {/* FRONT */}
+        <div
+          className="absolute inset-0"
+          style={{ backfaceVisibility: "hidden" }}
+        >
+          <div
+            className={`${dev.bg} ${dev.border} ${dev.cardRotation} ${dev.cardClasses} w-[90%] md:w-full border-4 p-2 sm:p-4`}
+          >
+            <div className="relative border-4 border-black overflow-hidden h-60 sm:h-75 md:h-80 lg:h-95 w-full">
+              <img
+                src={dev.image}
+                alt={dev.name}
+                className="h-full w-full object-cover"
+              />
             </div>
 
+            <div className={`${dev.bg} px-2 py-1`}>
+              <h3
+                className={`${dev.textColor} text-center text-5xl sm:text-7xl font-bold md:text-8xl lg:text-11xl`}
+              >
+                {dev.name.toUpperCase()}
+              </h3>
+            </div>
+          </div>
+        </div>
 
-            <div>
-                  <div className={`${dev.bg} ${dev.border} ${dev.cardRotation} ${dev.cardClasses} w-full group-hover:h-full absolute top-0`}
-                  >
-                    <div className="group-hover:opacity-100 opacity-0 transition-all duration-300 absolute top-0 w-full overflow-hidden p-2 sm:p-4 h-full flex item-center flex-col justify-around">
-                
-                    
-                      <div className={`${dev.bg} px-2 py-1`}>
-                        <h3 className={`${dev.textColor} text-center text-6xl sm:text-7xl font-bold md:text-8xl lg:text-11xl uppercase`}
-                        >
-                          {dev.name}
-                        </h3>
-                      </div>
+        {/* BACK */}
+        <div
+          className="absolute inset-0 w-full h-full"
+          style={{
+            transform: "rotateY(180deg)",
+            backfaceVisibility: "hidden",
+          }}
+        >
+          <div
+            className={`${dev.bg} ${dev.border} ${dev.cardRotation} ${dev.cardClasses} w-full h-full border-4 p-4 flex flex-col justify-around`}
+          >
+            <h3
+              className={`${dev.textColor} text-center text-6xl sm:text-7xl font-bold md:text-8xl lg:text-11xl uppercase`}
+            >
+              {dev.name}
+            </h3>
 
-                      <div
-                        className={`overflow- w-full text-2xl sm:text-3xl md:text-4xl font-bold flex items-center justify-around ${dev.textColor}`}
-                      >
-                    hey  {dev.text}
-                      </div> 
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
+            <div
+              className={`${dev.textColor} text-2xl sm:text-3xl md:text-4xl font-bold text-center`}
+            >
+              {dev.text}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

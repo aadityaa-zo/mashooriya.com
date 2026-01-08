@@ -1,10 +1,5 @@
-// "use client"
-// import { useState, useEffect } from "react";
-import Loader from "@/components/Loader";
-import HeroLogo from "@/components/HeroLogo";
 import NavBar from "@/components/NavBar";
 import SongCard from "@/components/SongCard";
-import Footer from "@/sections/Footer";
 import Hero from "@/sections/Hero";
 import ClientComponent from "@/components/ClientComponent";
 

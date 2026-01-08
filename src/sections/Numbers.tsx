@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
-// import { gsap } from "gsap"; --------------------
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import NumberTitles from "../components/NumberTitles";
@@ -50,6 +49,9 @@ const Numbers = ({ id }: NumbersProps) => {
   // CLEAN useGSAP VERSION
   useGSAP(
     () => {
+    const ctx = gsap.context(() => {
+//to clean all the scroll memory so animation runs everytme neatly
+    ScrollTrigger.clearScrollMemory()
       const el = titleRef.current;
 
       // Title animation
@@ -78,10 +80,15 @@ const Numbers = ({ id }: NumbersProps) => {
         pinSpacing: false,
         scrub: true,
       });
+    }, containerRef)
+
+    return () => ctx.revert()
     },
     {
       scope: containerRef,
       dependencies: [id],
+      revertOnUpdate: true, // IMPORTANT
+
     }
   );
 

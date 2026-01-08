@@ -1,5 +1,5 @@
-import Loader from "@/components/Loader";
-import HeroLogo from '@/components/HeroLogo'
+// import Loader from "@/components/Loading";
+// import HeroLogo from '@/components/HeroLogo'
 import NavBar from '@/components/NavBar'
 import SongCard from '@/components/SongCard'
 import Hero from '@/sections/Hero'

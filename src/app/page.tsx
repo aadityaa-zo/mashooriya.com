@@ -1,10 +1,14 @@
+export const dynamic = "force-dynamic"
+export const revalidate = 0
+
 "use client"
-import { useState, useEffect } from "react";
+
+import { useState, useEffect ,useRef} from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import HeroLogo from "@/components/HeroLogo";
-import Loader from "@/components/Loader";
+import Loader from "@/components/Loading";
 import Hero from "@/sections/Hero";
 import Numbers from "@/sections/Numbers";
 import Viral from "@/sections/Viral";
@@ -16,32 +20,29 @@ import BarAnimation from "@/sections/BarAnimation";
 import Footer from "@/sections/Footer";
 import Form from "@/sections/Form";
 import Clipsnreels from "@/sections/Clipsnreels";
-import SongCard from "@/components/SongCard";
 import OurClientSays from "@/sections/OurClientSays";
 import NavBar from "@/components/NavBar";
 
 gsap.registerPlugin(ScrollTrigger);
 
+
+// let hasLoadedOnce = false
+
 const Page = () => {
   const [logoColor, setLogoColor] = useState("Yellow");
-  const [isLoading, setIsLoading] = useState(true);
+  
+  // FORCE RELOAD FOR WHEN USER COMES AGAIN ON THE PAGE
+  // const firstLoad = useRef(true)
 
-  useEffect(() => {
-    const handleLoad = () => {
+  // useEffect(() => {
+  //   if (!firstLoad.current) {
+  //     window.location.reload()
+  //     return
+  //   }
 
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 300);
-    };
-
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-      return () => window.removeEventListener("load", handleLoad);
-    }
-  }, []);
-
+  //   firstLoad.current = false
+  // }, [])
+  
   useEffect(() => {
     const lenis = new Lenis({
       autoRaf: false,
@@ -74,7 +75,6 @@ const Page = () => {
       { id: "#bar-section", color: colorMap.Dark },
       { id: "#viral-section", color: colorMap.Dark },
       { id: "#about-section", color: colorMap.Green },
-      // { id: "#team-section", color: colorMap.Green }, 
       { id: "#services-section", color: colorMap.Yellow },
       { id: "#client-section", color: colorMap.Green },
       { id: "#ourclientsays-section", color: colorMap.Green },
@@ -104,8 +104,7 @@ const Page = () => {
 
   return (
     <>
-      {/* <Loader isLoading={true} /> */}
-      <Loader isLoading={isLoading} />
+      <Loader />
       <div className="h-screen">
         <HeroLogo color={logoColor} />
         <Hero id="hero" themeColor="Yellow"/>
@@ -115,9 +114,7 @@ const Page = () => {
       <Numbers id="numbers-section" />
       <BarAnimation id="bar-section" />
       <Viral id="viral-section" />
-      {/* <SongCard card="viral" limit={4} id="viral-section"/> */}
       <About id="about-section" />
-      {/* <TeamSection id="team-section" /> */}
       <Services id="services-section" />
       <OurClientSays id="ourclientsays-section"/>
       <Clients id="client-section" />

@@ -59,7 +59,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 };
 
   return (
-    <div id={id} className="relative bg-Yellow min-h-[calc(100vh+10vh)] flex justify-center items-start p-4 sm:p-6 md:p-4 lg:p-10 overflow-hidden">
+    <div id={id} className="relative bg-Yellow md:min-h-screen min-h-[calc(100vh+30vh)] flex justify-center items-start p-4 sm:p-6 md:p-4 lg:p-10 overflow-hidden">
       
       {/* Background shape */}
       <div className="pointer-events-none absolute -inset-1 bg-Dark 
@@ -80,7 +80,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           <div className="flex flex-col gap-12 md:gap-20">
 
             {/* NAME */}
-            <div className="relative border-4 sm:border-[6px] border-Dark p-4 sm:p-5">
+            <div className="relative border-4 sm:border-[6px] border-Dark p-2 sm:p-5">
               <span className="absolute -top-8 sm:-top-12 left-3 bg-Dark text-Yellow px-3 sm:px-4 py-1 sm:py-2 font-bold text-lg sm:text-2xl md:text-4xl -rotate-6">
                 NAME
               </span>
@@ -89,14 +89,17 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 type="text"
                 placeholder="ENTER YOUR NAME"
                 onChange={(e)=> setName(e.target.value)}
-                className="w-full bg-transparent outline-none text-Dark text-xl sm:text-2xl md:text-3xl font-bold"
+                className="w-full bg-transparent outline-none text-Dark text-xl sm:text-2xl md:text-3xl font-bold
+                box-border leading-[3rem]
+                   bg-[repeating-linear-gradient(transparent,transparent_2.7rem,#1A2027_2.7rem,#1A2027_3rem)]
+                   bg-local"
               />
 
-              <div className="absolute left-4 right-4 bottom-3 sm:bottom-4 h-1 sm:h-1.5 bg-Dark" />
+              {/* <div className="absolute left-4 right-4 bottom-3 sm:bottom-4 h-1 sm:h-1.5 bg-Dark" /> */}
             </div>
 
             {/* EMAIL */}
-            <div className="relative border-4 sm:border-[6px] border-Dark p-4 sm:p-5">
+            <div className="relative border-4 sm:border-[6px] border-Dark p-2 sm:p-5">
               <span className="absolute -top-8 sm:-top-12 left-3 bg-Dark text-Yellow px-3 sm:px-4 py-1 sm:py-2 font-bold text-lg sm:text-2xl md:text-4xl -rotate-6">
                 EMAIL
               </span>
@@ -105,33 +108,33 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 type="email"
                 onChange={(e)=> setEmail(e.target.value)}
                 placeholder="ENTER YOUR EMAIL"
-                className="w-full bg-transparent outline-none text-Dark text-xl sm:text-2xl md:text-3xl font-bold"
+                className="w-full box-border bg-transparent border-none outline-none resize-none
+                      font-bold text-xl sm:text-2xl md:text-3xl  leading-[3rem]
+                      text-Dark uppercase
+                      bg-[repeating-linear-gradient(transparent,transparent_2.7rem,#1A2027_2.7rem,#1A2027_3rem)]
+                      bg-local"
               />
-
-              <div className="absolute left-4 right-4 bottom-3 sm:bottom-4 h-1 sm:h-1.5 bg-Dark" />
+              {/* <div className="absolute left-4 right-4 bottom-3 sm:bottom-4 h-1 sm:h-1.5 bg-Dark" /> */}
             </div>
 
             {/* MESSAGE */}
-            <div className="relative border-4 sm:border-[6px] border-Dark p-4 sm:p-5 pb-6 bg-Yellow">
+            <div className="relative border-4 sm:border-[6px] border-Dark p-2 sm:p-5 pb-6 bg-Yellow">
               <span className="absolute -top-8 sm:-top-12 left-3 bg-Dark text-Yellow px-3 sm:px-4 py-1 sm:py-2 font-bold text-lg sm:text-2xl md:text-4xl -rotate-6">
-                MESSAGE
+                Message
               </span>
 
               <textarea
-                placeholder="ENTER YOUR MESSAGE"
-                onChange={(e)=> setMessage(e.target.value)}
-                className="w-full h-35 sm:h-45 md:h-55
-                bg-transparent outline-none resize-y
-                text-Dark text-xl sm:text-2xl md:text-3xl font-bold
-                leading-[2.2rem] sm:leading-[2.6rem] md:leading-[2.8rem]
-                [background-image:repeating-linear-gradient(
-                  transparent,
-                  transparent_2.4rem,
-                  #1A2027_2.4rem,
-                  #1A2027_2.8rem
-                )] bg-local"
-              />
+                placeholder="Enter Your Message"
+                className="w-full h-50 box-border bg-transparent border-none outline-none resize-none
+                      font-bold text-xl sm:text-2xl md:text-3xl  leading-[3rem]
+                      text-Dark uppercase
+                      bg-[repeating-linear-gradient(transparent,transparent_2.7rem,#1A2027_2.7rem,#1A2027_3rem)]
+                      bg-local 
+                      [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-Dark [&::-webkit-scrollbar-thumb]:rounded-full
+                      "></textarea>
+
             </div>
+
           </div>
 
           {/* BUTTON */}

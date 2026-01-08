@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
-// import { gsap } from "gsap"; -----------------------------
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
@@ -15,6 +14,11 @@ const BarAnimation = ({ id }: BarAnimationProps) => {
   const barsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useGSAP(() => {
+
+    const ctx = gsap.context(() => {
+    //to clean all the scroll memory so animation runs everytme neatly
+    ScrollTrigger.clearScrollMemory()
+
     const bars = barsRef.current;
     const barHeights = [95, 85, 95, 95, 90, 90]; // different heights for variety
     const order = [2, 0, 4, 1, 5, 3];
@@ -40,11 +44,15 @@ const BarAnimation = ({ id }: BarAnimationProps) => {
           ease: "power3.out",
           duration: 1,
         },
-        i * 0.2 // ← sequential offset between bars
+        i * 0.2 //  sequential offset between bars
       );
     });
+    }, containerRef)
+
+    return () => ctx.revert()
   }, {
-    scope: containerRef, // 🔥 keeps GSAP on a leash
+    scope: containerRef, // keeps GSAP on a leash
+    revertOnUpdate: true, // IMPORTANT
   });
 
 

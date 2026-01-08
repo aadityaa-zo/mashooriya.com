@@ -1,7 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import ViralSongsCard from "../components/ViralSongsCard";
 import { gsap } from "gsap";
-// import { gsap } from "gsap";---------------------------
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Link from "next/link";
@@ -50,6 +49,10 @@ const Viral = ({ id }: ViralProps) => {
   ];
 
   useGSAP(() => {
+
+    const ctx = gsap.context(() => {
+//to clean all the scroll memory so animation runs everytme neatly
+    ScrollTrigger.clearScrollMemory()
     if (
       !sectionRef.current ||
       !titleRef.current ||
@@ -133,9 +136,16 @@ const Viral = ({ id }: ViralProps) => {
       window.removeEventListener("resize", handleResize);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
+
+    }, sectionRef)
+
+    return () => ctx.revert()
+
   },  {
       scope: sectionRef,
       dependencies: [id],
+      revertOnUpdate: true, // IMPORTANT
+
     });
 
   const addToRefs = (el: HTMLDivElement | null) => {
