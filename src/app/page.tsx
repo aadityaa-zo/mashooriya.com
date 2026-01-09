@@ -1,7 +1,8 @@
-export const dynamic = "force-dynamic"
-export const revalidate = 0
-
 "use client"
+
+// export const dynamic = "force-dynamic"
+// export const revalidate = 0
+
 
 import { useState, useEffect ,useRef} from "react";
 import { gsap } from "gsap";
@@ -42,6 +43,36 @@ const Page = () => {
 
   //   firstLoad.current = false
   // }, [])
+
+  //     useEffect(() => {
+  //   const hasVisited = sessionStorage.getItem("visited-home")
+
+  //   if (hasVisited) {
+  //     window.location.reload()
+  //     return
+  //   }
+
+  //   sessionStorage.setItem("visited-home", "true")
+  // }, [])
+
+  useEffect(() => {
+    if (process.env.NODE_ENV !== "production") return
+
+    const hasVisited = sessionStorage.getItem("visited-home")
+    const hasReloaded = sessionStorage.getItem("home-reloaded")
+
+    // Case 1: coming back, reload once
+    if (hasVisited && !hasReloaded) {
+      sessionStorage.setItem("home-reloaded", "true")
+      window.location.reload()
+      return
+    }
+
+    // Case 2: first time OR after reload → reset state
+    sessionStorage.setItem("visited-home", "true")
+    sessionStorage.removeItem("home-reloaded")
+  }, [])
+
   
   useEffect(() => {
     const lenis = new Lenis({
